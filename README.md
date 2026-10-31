@@ -186,5 +186,35 @@ Membutuhkan `app.py` sudah berjalan di terminal terpisah. Hasil tersimpan sebaga
 - Bergantung pada API gratis Groq — pada penggunaan simultan yang tinggi, rate limit dapat berlaku.
 - Untuk pertanyaan di luar cakupan data (mis. cuaca, info non-pariwisata), AI secara sengaja menjawab jujur bahwa informasi tidak tersedia, alih-alih mengarang jawaban — ini merupakan desain yang disengaja untuk mencegah misinformasi, bukan kegagalan sistem.
 
+## 11. AI Use Declaration
+
+Pengembangan sistem **TobaVerse AI** memanfaatkan teknologi kecerdasan buatan (*Artificial Intelligence*) dengan rincian sebagai berikut:
+
+* **Large Language Model (LLM):** Menggunakan **Llama 3.3 (via Groq API)** untuk memproses pemahaman kueri percakapan dan menghasilkan respons alami.
+* **Embedding Model:** Memanfaatkan `all-MiniLM-L6-v2` (*Sentence-Transformers*) untuk mengonversi entri teks basis pengetahuan menjadi vektor numerik.
+* **Framework RAG (Retrieval-Augmented Generation):** Menerapkan arsitektur RAG agar AI hanya merespons berdasarkan dokumen data resmi yang dipanggil dari Vector Database guna meminimalkan risiko jawaban halusinasi.
+* **AI Coding Assistant:** Menggunakan AI Assistant selama proses penulisan kode, *data cleaning script*, dan penyusunan dokumentasi.
+
+---
+
+## 12. Third-Party Declaration
+
+Berikut adalah daftar pustaka (*libraries*), kerangka kerja (*frameworks*), dan aset pihak ketiga yang diintegrasikan ke dalam aplikasi:
+
+### Backend & AI Infrastructure
+* **Python 3.10+:** Bahasa pemrograman utama backend.
+* **Flask & Flask-CORS:** Web framework dan penangan aturan pertukaran sumber daya lintas domain (*cross-origin*).
+* **ChromaDB:** *Vector Database* lokal untuk penyimpanan dan pencarian jarak vektor (*vector similarity search*).
+* **Sentence-Transformers:** Pustaka ekstraksi fitur *embeddings* dari teks.
+* **Groq API Client:** SDK penghubung ke inference engine Llama 3.3.
+* **Pandas & NumPy:** Pustaka pengolahan dan manipulasi data.
+
+### Frontend & UI/UX
+* **HTML5, CSS3, & JavaScript (ES6+):** Dasar pembentuk antarmuka dan interaktivitas halaman web.
+* **Bootstrap 5:** Kerangka kerja desain antarmuka yang responsif.
+
+### Media & Aset Audio
+* **Batak Audio Theme:** Aset musik latar dan efek suara lokal (`batak-theme.mp3`, `Uningan.mp3`) untuk memperkuat nuansa kebudayaan Toba.
+
 ---
 
