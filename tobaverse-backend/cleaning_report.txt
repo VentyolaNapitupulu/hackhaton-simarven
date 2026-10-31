@@ -1,0 +1,13 @@
+=== LAPORAN PEMBANGUNAN KNOWLEDGE BASE TOBAVERSE ===
+
+wisata-metadata: 139 entri awal -> 138 setelah hapus 1 duplikat nama
+hotel-metadata: 36 entri awal -> 36 setelah hapus 0 duplikat nama
+resto-metadata: 148 entri awal -> 147 setelah hapus 1 duplikat nama
+kuliner: 12 entri (tidak ada nama tempat untuk dedupe, cek manual jika perlu)
+transportasi: 16 entri awal -> 9 setelah hapus 7 duplikat nama
+Artikel Danau Toba: 6 entri
+  -> field yang tersedia: ['No', 'Judul Artikel', 'Kabupaten', 'Rangkuman (Paragraf Awal)', 'Link Artikel']
+Info Seputar Danau Toba: SENGAJA DI-SKIP (known issue -- header Excel bertingkat/merged cells rusak saat konversi JSON, butuh pemetaan manual ~65 kolom; dicatat sebagai rencana pengayaan data tahap final, bukan dipakai di preliminary)
+
+=== TOTAL KNOWLEDGE BASE: 348 entri siap di-embed ===
+Disimpan ke: knowledge_base.json
