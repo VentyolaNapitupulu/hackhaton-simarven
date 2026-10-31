@@ -12,26 +12,30 @@ Wisatawan yang baru pertama kali berkunjung ke Danau Toba kesulitan mendapatkan 
 | Silvia Eklesiana Sitorus | Frontend Developer & UI/UX Designer | +62 852-1690-0383 |
 | Margareth Bungaran Sitompul | Backend Developer | +62 813-9914-7785 |
 
-## 3. Pemanfaatan Data Pariwisata Toba
+### 3. Pemanfaatan Data Pariwisata Toba
 
-**Data Utama:** Dari 14 sheet dataset panitia, kami menggunakan 6 sheet yang paling relevan sebagai basis pengetahuan (knowledge base), diproses menjadi 348 entri terstruktur:
+**Data Utama:**  
+Dataset dikompilasi dari **Pusat Data Institut Teknologi Del** melalui skema permohonan data penelitian dosen, yang kemudian diperkaya (*enrichment*) dengan pengumpulan data mandiri dari berbagai platform internet. Dari total 14 *sheet* data yang terkumpul, kami mengeliminasi redundansi dan memilih 6 *sheet* paling relevan sebagai basis pengetahuan (*knowledge base*), yang diproses menjadi 348 entri terstruktur:
 
-| Sheet Panitia | Entri Digunakan | Fungsi |
+| Sumber Data / Sheet | Entri Digunakan | Fungsi |
 | :--- | :---: | :--- |
-| `wisata-metadata` | 138 | Data destinasi wisata (harga, jam, alamat, rating) |
-| `hotel-metadata` | 36 | Data akomodasi |
-| `resto-metadata` | 147 | Data tempat makan |
+| `wisata-metadata` | 138 | Data destinasi wisata (harga, jam operational, alamat, rating) |
+| `hotel-metadata` | 36 | Data akomodasi & penginapan |
+| `resto-metadata` | 147 | Data tempat makan & kuliner |
 | `kuliner` | 12 | Data kuliner khas Batak |
-| `transportasi` | 9 | Data moda transportasi |
+| `transportasi` | 9 | Data moda & rute transportasi |
 | `Artikel Danau Toba` | 6 | Konten naratif sejarah & budaya |
 
-**Pengolahan:**
-- Deduplikasi otomatis berbasis nama tempat (contoh: sheet `transportasi` 16→9 entri setelah 7 duplikat nyata dihapus, mis. "KMP Kaldera Toba" yang tercatat 4x)
-- Strukturisasi tiap entri menjadi teks naratif siap-embed, disertai metadata kategori untuk keperluan filtering saat retrieval
-- Sheet `Info Seputar Danau Toba` **sengaja tidak digunakan**: strukturnya rusak akibat merged-header Excel saat dikonversi ke JSON (butuh pemetaan manual ~65 kolom, tidak sepadan untuk skala preliminary)
-- Sheet `resto-hotel-v2` dan `wisata-v2` (total 22.302 baris data ulasan individual) **sengaja tidak digunakan** di tahap ini: 41-55% entrinya tanpa teks ulasan bermakna, dan skalanya terlalu granular untuk knowledge base RAG MVP — dicadangkan sebagai bahan fitur analisis sentimen di roadmap lanjutan.
+**Pengolahan Data:**
 
-**Data Tambahan:** -
+* **Deduplikasi Otomatis:** Melakukan pembersihan berbasis nama tempat (contoh: pada data `transportasi` dari 16 menjadi 9 entri setelah menghapus 7 duplikat nyata, seperti *"KMP Kaldera Toba"* yang tercatat berulang kali).
+* **Strukturisasi Teks:** Masing-masing entri dikonversi menjadi teks naratif siap-*embed*, dilengkapi metadata kategori untuk optimalisasi pencarian (*retrieval filtering*).
+* **Pembersihan Sheet Terpisah:**
+  * Sheet `Info Seputar Danau Toba` **sengaja tidak digunakan**: struktur data mengalami kendala *merged-header* Excel saat konversi ke JSON (membutuhkan pemetaan ulang ~65 kolom, kurang efisien untuk skala *preliminary*).
+  * Sheet `resto-hotel-v2` dan `wisata-v2` (total 22.302 baris ulasan individual) **sengaja tidak digunakan pada tahap ini**: 41–55% entri tidak memiliki ulasan bermakna dan skalanya terlalu granular untuk *Knowledge Base RAG MVP* — dicadangkan untuk pengkayaan fitur analisis sentimen di *roadmap* lanjutan.
+
+**Data Tambahan:**  
+Hasil *scraping* dan agregasi mandiri dari platform internet (sumber web terbuka) untuk melengkapi metadata serta akurasi informasi terkini seputar pariwisata Toba.
 
 ## 4. Tautan & Aset Pendukung
 - **Link Video Demonstrasi (Wajib):** https://youtu.be/Pf7O47uuHWo?si=vaIWOTijPM8eT0ty
