@@ -15,7 +15,7 @@ Wisatawan yang baru pertama kali berkunjung ke Danau Toba kesulitan mendapatkan 
 ### 3. Pemanfaatan Data Pariwisata Toba
 
 **Data Utama:**  
-Dataset dikompilasi dari **Pusat Data Institut Teknologi Del** melalui skema permohonan data penelitian dosen, yang kemudian diperkaya (*enrichment*) dengan pengumpulan data mandiri dari berbagai platform internet. Dari total 14 *sheet* data yang terkumpul, kami mengeliminasi redundansi dan memilih 6 *sheet* paling relevan sebagai basis pengetahuan (*knowledge base*), yang diproses menjadi 348 entri terstruktur:
+Dataset dikompilasi dari **Pusat Data Institut Teknologi Del** melalui skema permohonan data penelitian dosen. Dari total 14 *sheet* data yang diperoleh, kami mengeliminasi redundansi dan memilih 6 *sheet* paling relevan sebagai basis pengetahuan (*knowledge base*), yang diproses menjadi 348 entri terstruktur:
 
 | Sumber Data / Sheet | Entri Digunakan | Fungsi |
 | :--- | :---: | :--- |
@@ -33,9 +33,6 @@ Dataset dikompilasi dari **Pusat Data Institut Teknologi Del** melalui skema per
 * **Pembersihan Sheet Terpisah:**
   * Sheet `Info Seputar Danau Toba` **sengaja tidak digunakan**: struktur data mengalami kendala *merged-header* Excel saat konversi ke JSON (membutuhkan pemetaan ulang ~65 kolom, kurang efisien untuk skala *preliminary*).
   * Sheet `resto-hotel-v2` dan `wisata-v2` (total 22.302 baris ulasan individual) **sengaja tidak digunakan pada tahap ini**: 41–55% entri tidak memiliki ulasan bermakna dan skalanya terlalu granular untuk *Knowledge Base RAG MVP* — dicadangkan untuk pengkayaan fitur analisis sentimen di *roadmap* lanjutan.
-
-**Data Tambahan:**  
-Hasil *scraping* dan agregasi mandiri dari platform internet (sumber web terbuka) untuk melengkapi metadata serta akurasi informasi terkini seputar pariwisata Toba.
 
 ## 4. Tautan & Aset Pendukung
 - **Link Video Demonstrasi (Wajib):** https://youtu.be/Pf7O47uuHWo?si=vaIWOTijPM8eT0ty
