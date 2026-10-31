@@ -1,0 +1,22 @@
+[
+  {"id": 1, "kategori": "wisata - langsung", "pertanyaan": "Rekomendasi tempat wisata alam di Balige"},
+  {"id": 2, "kategori": "wisata - tidak langsung", "pertanyaan": "Tempat yang cocok buat healing dan sepi, budget di bawah 50 ribu"},
+  {"id": 3, "kategori": "wisata - typo", "pertanyaan": "wisata alm murh dekat balig"},
+  {"id": 4, "kategori": "wisata - spesifik", "pertanyaan": "Ada air terjun gak di sekitar Danau Toba?"},
+  {"id": 5, "kategori": "resto/kuliner", "pertanyaan": "Warung makan enak dan murah di Balige"},
+  {"id": 6, "kategori": "resto/kuliner - tidak langsung", "pertanyaan": "Lapar nih, ada tempat makan enak gak di sekitar sini?"},
+  {"id": 7, "kategori": "kuliner khas", "pertanyaan": "Makanan khas apa yang wajib dicoba di Danau Toba?"},
+  {"id": 8, "kategori": "hotel", "pertanyaan": "Penginapan murah dekat Danau Toba untuk 2 orang"},
+  {"id": 9, "kategori": "hotel - tidak langsung", "pertanyaan": "Mau nginap semalam, ada rekomendasi tempat yang nyaman?"},
+  {"id": 10, "kategori": "transportasi", "pertanyaan": "Bagaimana cara menyeberang ke Pulau Samosir?"},
+  {"id": 11, "kategori": "transportasi - spesifik", "pertanyaan": "Berapa tarif kapal dari Balige ke Onanrunggu?"},
+  {"id": 12, "kategori": "budaya/artikel", "pertanyaan": "Ceritakan soal budaya Batak di Danau Toba"},
+  {"id": 13, "kategori": "kombinasi budget+durasi", "pertanyaan": "Saya punya budget 300 ribu untuk sehari, kemana sebaiknya saya pergi?"},
+  {"id": 14, "kategori": "perbandingan", "pertanyaan": "Mending ke Bukit Holbung atau Sipinsur buat lihat sunrise?"},
+  {"id": 15, "kategori": "di luar cakupan (harus jujur 'tidak tahu')", "pertanyaan": "Bagaimana cuaca di Danau Toba besok?"},
+  {"id": 16, "kategori": "di luar cakupan", "pertanyaan": "Siapa bupati Kabupaten Toba saat ini?"},
+  {"id": 17, "kategori": "tidak jelas/ambigu", "pertanyaan": "ada apa aja"},
+  {"id": 18, "kategori": "sapaan (bukan pertanyaan data)", "pertanyaan": "Halo, kamu siapa?"},
+  {"id": 19, "kategori": "campuran kategori", "pertanyaan": "Rencana healing sehari: wisata alam, makan enak, dan penginapan murah di satu area"},
+  {"id": 20, "kategori": "nama tempat spesifik", "pertanyaan": "Ceritakan tentang Bukit Holbung"}
+]
