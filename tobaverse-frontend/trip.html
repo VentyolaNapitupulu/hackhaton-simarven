@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TobaVerse AI Trip — Rencanakan Perjalananmu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/chatbot.css">
+<link rel="stylesheet" href="css/trip.css">
+</head>
+
+<audio id="bgMusic" loop preload="auto">
+    <source src="assets/audio/Uningan.mp3" type="audio/mpeg">
+</audio>
+
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="site-nav">
+    <a href="index.html" class="brand" aria-label="TobaVerse Home">
+        <img src="assets/images/branding/logo.png" alt="TobaVerse Logo">
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="culture.html">Culture</a>
+        <a href="culinary.html">Culinary</a>
+        <a href="journey.html">Journey</a>
+        <a href="events.html">Events</a>
+        <a href="map.html">Map</a>
+    </nav>
+    <div class="nav-actions">
+        <button id="musicToggle" class="music-btn" aria-label="Toggle Background Music" type="button">🎵</button>
+        <a class="nav-cta" href="trip.html">TobaVerse AI</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" type="button">
+        <span></span>
+    </button>
+</header>
+
+<main id="main">
+<div class="trip-page">
+
+    <!-- ======= WIZARD: CHAT + TRACKER ======= -->
+    <section id="wizardSection" class="trip-split">
+
+        <!-- ===== KIRI: PANEL CHAT ===== -->
+        <div class="chat-panel">
+            <div class="chat-panel-header">
+                <h2>Horas! 👋 <br />Mari Rencanakan Perjalanan Anda</h2>
+                <p>Selamat datang di kawasan Danau Toba. <br />Saya TobaVerse AI, siap membantu menyusun perjalanan yang sesuai
+                   dengan minat, waktu, dan gaya liburan Anda ke Danau Toba.</p>
+            </div>
+
+            <div id="tripChatLog" class="chat-panel-log"></div>
+            <div id="tripChipArea" class="chat-panel-chips"></div>
+
+            <div class="chat-panel-input">
+                <input type="text" id="tripFreeInput" placeholder="Ceritakan perjalanan impian Anda...">
+                <button id="tripSendBtn" aria-label="Kirim"><i class="bi bi-send-fill"></i></button>
+            </div>
+        </div>
+
+        <!-- ===== KANAN: TRACKER LANGKAH ===== -->
+        <div class="tracker-panel">
+            <div class="tracker-label">RENCANA PERJALANAN</div>
+            <h2>Rancang Petualangan Anda di Danau Toba</h2>
+            <div id="trackerProgressText" class="tracker-progress-text">0 dari 5 langkah selesai</div>
+
+            <ul id="trackerList" class="tracker-list"></ul>
+
+            <button id="generateBtn" class="btn-wizard-primary" disabled>
+                <i class="bi bi-stars"></i> Buat Rencana Perjalanan
+            </button>
+            <p class="tracker-footer-note">
+                AI TobaVerse akan menyusun itinerary sesuai minat, waktu, dan
+                kebutuhan perjalanan Anda.
+            </p>
+        </div>
+    </section>
+
+    <!-- ======= AI THINKING ======= -->
+    <section id="aiThinkingSection" class="ai-thinking" style="display:none;">
+        <div class="ai-thinking-spinner"></div>
+        <p id="aiThinkingText" class="ai-thinking-text">Menganalisis preferensimu...</p>
+    </section>
+
+    <!-- ======= HASIL ITINERARY (DASHBOARD) ======= -->
+    <section id="resultSection" class="trip-result" style="display:none;">
+
+        <button id="backToWizardBtn" class="back-link no-print">
+            <i class="bi bi-arrow-left"></i> Kembali ke Perencanaan
+        </button>
+
+        <div class="result-layout">
+
+            <!-- Kartu ringkasan kiri -->
+            <div class="result-summary-card">
+                <div class="result-summary-badge"><i class="bi bi-award"></i></div>
+                <h3 id="resultRingkasan" class="result-title"></h3>
+                <p class="result-subtitle">Rekomendasi Perjalanan Khusus dari AI</p>
+
+                <div class="result-stats">
+                    <div class="result-stat">
+                        <i class="bi bi-calendar3"></i>
+                        <span id="resultDurasi"></span>
+                    </div>
+                    <div class="result-stat">
+                        <i class="bi bi-people"></i>
+                        <span id="resultCompanion"></span>
+                    </div>
+                </div>
+
+                <button id="printBtn" class="btn-wizard-primary btn-full no-print">
+                    <i class="bi bi-download"></i> Unduh Rundown (PDF)
+                </button>
+
+                <div class="ai-consultant-box">
+                    <div class="ai-consultant-label">
+                        <i class="bi bi-stars"></i> AI KONSULTAN PERJALANAN
+                    </div>
+                    <p id="resultKonsultan" class="ai-consultant-text"></p>
+                </div>
+
+                <div class="result-cost-line">
+                    <span>Estimasi Biaya</span>
+                    <strong id="resultBiaya"></strong>
+                </div>
+            </div>
+
+            <!-- Rundown tabel kanan -->
+            <div class="result-days" id="resultTimeline"></div>
+
+        </div>
+
+        <div id="resultTipsBudaya" class="result-tips-budaya"></div>
+
+        <p class="result-disclaimer no-print">
+            <i class="bi bi-info-circle"></i>
+            Itinerary ini dihasilkan AI berdasarkan data pariwisata Danau Toba. Selalu cek ulang
+            harga & jam operasional terbaru sebelum berangkat.
+        </p>
+    </section>
+
+</div>
+</main>
+
+<div class="chat-widget">
+    <button id="chatToggleBtn" class="chat-btn" aria-label="Buka TobaVerse Assistant">
+        <i class="bi bi-chat-dots-fill"></i>
+    </button>
+
+    <div id="chatBox" class="chat-box">
+        <div class="chat-header">
+            <div>
+                <h4>TobaVerse Assistant</h4>
+                <span>Tanya apa saja soal Danau Toba</span>
+            </div>
+            <button id="chatCloseBtn" class="chat-close-btn" aria-label="Tutup chat">&times;</button>
+        </div>
+
+        <div id="chatMessages" class="chat-messages">
+            <div class="chat-msg bot">Horas! <br />Saya Ompung Bot, siap membantu kamu menemukan destinasi wisata, kuliner, penginapan, atau transportasi di sekitar Danau Toba. Mau tanya apa?</div>
+            <div id="chatQuickActions" class="chat-quick-actions"></div>
+        </div>
+
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Tulis pertanyaanmu..." autocomplete="off">
+            <button id="chatSendBtn" class="chat-send-btn" aria-label="Kirim pesan">
+                <i class="bi bi-send-fill"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="js/trip.js"></script>
+<script src="js/script.js"></script>
+<script src="js/music.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>>

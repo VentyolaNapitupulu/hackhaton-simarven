@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Explore Lake Toba — TobaVerse</title>
+<meta name="description" content="Discover Lake Toba's stone villages, caldera viewpoints, and lakeside culture — search, filter, and read the full story behind every destination." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/explore.css" />
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="css/chatbot.css">
+</head>
+
+<body>
+<audio id="bgMusic" loop preload="auto">
+    <source src="assets/audio/Uningan.mp3" type="audio/mpeg">
+</audio>
+
+<a href="#main" class="skip-link">Skip to content</a>
+<header class="site-nav">
+    <!-- Logo -->
+    <a href="index.html" class="brand" aria-label="TobaVerse Home">
+
+        <img
+            src="assets/images/branding/logo.png"
+            alt="TobaVerse Logo">
+    </a>
+    <!-- Navigation -->
+    <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">
+            Home
+        </a>
+        <a href="explore.html" class="active">
+            Explore
+        </a>
+        <a href="culture.html">
+            Culture
+        </a>
+        <a href="culinary.html">
+            Culinary
+        </a>
+        <a href="journey.html">
+            Journey
+        </a>
+        <a href="events.html">
+            Events
+        </a>
+        <a href="map.html">
+            Map
+        </a>
+    </nav>
+    <div class="nav-actions">
+        <button id="musicToggle" class="music-btn" aria-label="Toggle Background Music" type="button">
+            🎵
+        </button>
+        <a class="nav-cta" href="journey.html">
+            Plan My Trip
+        </a>
+    </div>
+    <!-- Mobile -->
+    <button
+        class="nav-toggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false">
+        <span></span>
+    </button>
+</header>
+
+<main id="main">
+
+  <!-- EXPLORE HERO ========================================================= -->
+  <section class="explore-hero">
+    <div class="explore-hero-inner">
+      <span class="eyebrow">North Sumatra · Caldera Route</span>
+      <h1>Discover Lake Toba</h1>
+      <p class="lede">
+        Eight destinations, one caldera. Search by name, filter by what you're
+        after, and open the story behind every stone chair, ridge, and
+        harbor table on the lake.
+      </p>
+      <div class="hero-actions">
+        <a href="#destinations" class="btn btn-primary">Explore Destinations</a>
+        <a href="#map" class="btn btn-ghost">Open Map</a>
+      </div>
+    </div>
+    <div class="scroll-indicator on-dark" aria-hidden="true">
+      <span>Scroll</span>
+      <span class="line"></span>
+    </div>
+  </section>
+
+  <!-- FEATURED DESTINATIONS (title, search, filters, and grid — one section) -->
+  <section class="destinations" id="destinations">
+    <div class="container">
+      <div class="section-head reveal fade-up">
+        <div>
+          <span class="eyebrow">Featured Destination</span>
+          <h2 class="section-title">Around the Caldera Rim</h2>
+        </div>
+        <p class="section-lede">Discover iconic villages, viewpoints, museums, beaches, and authentic Batak experiences around Lake Toba.</p>
+      </div>
+
+      <!-- SEARCH + FILTER TOOLBAR ========================================== -->
+      <div class="toolbar reveal fade-up">
+        <div class="toolbar-card">
+          <div class="search-row">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <label for="destSearch" class="sr-only" style="position:absolute;left:-9999px;">Search destinations</label>
+            <input id="destSearch" type="search" placeholder="Search by name, category, or location…" aria-label="Search destinations by name, category, or location" />
+            <span class="search-count" id="searchCount">8 destinations</span>
+          </div>
+          <div class="filter-row" role="group" aria-label="Filter destinations by category">
+            <button class="chip is-active" data-filter="All">All</button>
+            <button class="chip" data-filter="Nature">Nature</button>
+            <button class="chip" data-filter="Culture">Culture</button>
+            <button class="chip" data-filter="Heritage">Heritage</button>
+            <button class="chip" data-filter="Viewpoint">Viewpoint</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dest-grid" id="destGrid" aria-live="polite"></div>
+      <div class="grid-empty" id="gridEmpty">
+        <p>No destinations match that search. Try a different name, category, or location.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE MAP -->
+  <section class="map-section" id="map">
+    <div class="container">
+      <div class="section-head reveal fade-up">
+        <div>
+          <span class="eyebrow">Orient Yourself</span>
+          <h2 class="section-title">The full caldera, at a glance</h2>
+        </div>
+      </div>
+      <div class="map-frame-wrap reveal fade-up">
+        <iframe
+          title="Interactive map of Lake Toba, North Sumatra"
+          src="https://www.google.com/maps?q=Lake+Toba,+North+Sumatra,+Indonesia&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="map-caption">
+        <span>Centered on Lake Toba, North Sumatra — zoom in to see Samosir Island and the surrounding ring road.</span>
+        <a class="btn btn-outline" href="https://maps.google.com/?q=Lake+Toba+North+Sumatra" target="_blank" rel="noopener">Open Full Map ↗</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+<!-- FOOTER -->
+
+<footer class="footer">
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <!-- Brand -->
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="footer-logo">
+
+                    <img
+                        src="assets/images/branding/logo-white.png"
+                        alt="TobaVerse Logo">
+
+                </a>
+
+                <p>
+                    TobaVerse is your premium digital companion for discovering breathtaking
+                    landscapes, authentic Batak culture, local cuisine, and unforgettable
+                    journeys across Lake Toba.
+                </p>
+
+                <div class="footer-social">
+
+                    <a href="#" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#" aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a href="#" aria-label="TikTok">
+                        <i class="bi bi-tiktok"></i>
+                    </a>
+
+                    <a href="#" aria-label="YouTube">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Explore -->
+
+            <div class="footer-column">
+
+                <h3>Explore</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="explore.html">
+                            Destinations
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="culture.html">
+                            Culture
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="culinary.html">
+                            Culinary
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="events.html">
+                            Events
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Travel -->
+
+            <div class="footer-column">
+
+                <h3>Travel</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="journey.html">
+                            Journey Planner
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="map.html">
+                            Interactive Map
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="explore.html">
+                            Travel Guide
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Contact -->
+
+            <div class="footer-column">
+
+                <h3>Contact</h3>
+
+                <ul class="footer-contact">
+
+                    <li>
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <span>Lake Toba, North Sumatra</span>
+                    </li>
+
+                    <li>
+                        <i class="bi bi-envelope-fill"></i>
+                        <span>hello@tobaverse.com</span>
+                    </li>
+
+                    <li>
+                        <i class="bi bi-telephone-fill"></i>
+                        <span>+62 812 3456 7890</span>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 TobaVerse. All Rights Reserved.
+            </p>
+
+            <div class="footer-bottom-links">
+
+                <a href="#">
+                    Privacy Policy
+                </a>
+
+                <a href="#">
+                    Terms
+                </a>
+
+                <a href="#">
+                    Sitemap
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- CHATBOT WIDGET -->
+
+<div class="chat-widget">
+
+    <button id="chatToggleBtn" class="chat-btn" aria-label="Buka TobaVerse Assistant">
+
+        <i class="bi bi-chat-dots-fill"></i>
+
+    </button>
+
+    <div id="chatBox" class="chat-box">
+
+        <div class="chat-header">
+
+            <div>
+
+                <h4>TobaVerse Assistant</h4>
+
+                <span>Tanya apa saja soal Danau Toba</span>
+
+            </div>
+
+            <button id="chatCloseBtn" class="chat-close-btn" aria-label="Tutup chat">
+
+                &times;
+
+            </button>
+
+        </div>
+
+        <div id="chatMessages" class="chat-messages">
+
+             <div class="chat-msg bot">Horas! <br />Saya Ompung Bot, siap membantu kamu menemukan destinasi wisata, kuliner, penginapan, atau transportasi di sekitar Danau Toba. Mau tanya apa?</div>
+            <div id="chatQuickActions" class="chat-quick-actions"></div>
+        </div>
+        <div class="chat-input-area">
+
+            <input
+
+                type="text"
+
+                id="chatInput"
+
+                placeholder="Tulis pertanyaanmu..."
+
+                autocomplete="off">
+
+            <button id="chatSendBtn" class="chat-send-btn" aria-label="Kirim pesan">
+
+                <i class="bi bi-send-fill"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- READ STORY MODAL ======================================================== -->
+<div class="modal-overlay" id="storyModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal" id="modalBody"></div>
+</div>
+
+<script src="js/explore.js"></script>
+<script src="js/script.js"></script>
+<script src="js/music.js"></script>
+<script src="js/chatbot.js"></script>
+
+</body>
+</html>

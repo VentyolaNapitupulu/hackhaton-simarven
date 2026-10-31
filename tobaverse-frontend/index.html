@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TobaVerse | Premium Lake Toba Digital Tourism Portal</title>
+    <meta name="description"
+        content="Discover the beauty of Lake Toba through destinations, Batak culture, culinary experiences, interactive maps, and smart travel planning with TobaVerse.">
+    <meta name="keywords"
+        content="Lake Toba, Danau Toba, TobaVerse, Indonesia Tourism, Batak Culture, Travel">
+   <link rel="icon"
+        type="image/png"
+        href="assets/images/branding/favicon.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet"
+        href="css/style.css">
+    <link rel="stylesheet"
+        href="css/home.css">
+    <link rel="stylesheet"
+        href="css/responsive.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <!-- BOOTSTRAP ICONS -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+</head>
+
+<audio id="bgMusic" loop preload="auto">
+    <source src="assets/audio/Uningan.mp3" type="audio/mpeg">
+</audio>
+<body>
+
+<a class="skip-link" href="#main">
+    Skip to Content
+</a>
+
+<!-- HEADER -->
+<header class="site-nav">
+
+    <!-- Logo -->
+    <a href="index.html" class="brand" aria-label="TobaVerse Home">
+
+        <img
+            src="assets/images/branding/logo.png"
+            alt="TobaVerse Logo">
+    </a>
+
+    <!-- Navigation -->
+    <nav class="nav-links" aria-label="Primary">
+        <a href="index.html" class="active">
+            Home
+        </a>
+        <a href="explore.html">
+            Explore
+        </a>
+        <a href="culture.html">
+            Culture
+        </a>
+        <a href="culinary.html">
+            Culinary
+        </a>
+        <a href="journey.html">
+            Journey
+        </a>
+        <a href="events.html">
+            Events
+        </a>
+        <a href="map.html">
+            Map
+        </a>
+    </nav>
+
+
+    <!-- Actions -->
+    <div class="nav-actions">
+
+        <button
+            id="musicToggle"
+            class="music-btn"
+            aria-label="Toggle Background Music">
+            🎵
+        </button>
+
+        <a class="nav-cta" href="trip.html">
+            TobaVerse AI
+        </a>
+
+    </div>
+
+    <!-- Mobile -->
+    <button
+        class="nav-toggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false">
+
+        <span></span>
+
+    </button>
+
+</header>
+<!-- MAIN -->
+
+<main id="main">
+
+<!-- HERO -->
+
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">     
+            <h1>
+            Discover the <br>
+            Beauty of <br>
+            <span>Lake Toba</span>
+            </h1>
+            <p>
+            Discover stunning landscapes, rich Batak culture, authentic cuisine, and unforgettable journeys around Lake Toba.
+            </p>
+            <div class="hero-buttons">
+                <a href="explore.html"
+                    class="btn-primary">
+                    Explore Now
+                </a>
+                <a href="#about"
+                    class="btn-secondary">
+                    Learn More
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <h2>
+                        100+
+                    </h2>
+                    <span>
+                        Tourist Attractions
+                    </span>
+                </div>
+                <div class="stat">
+                    <h2>
+                        30+
+                    </h2>
+                    <span>
+                        Cultural Experiences
+                    </span>
+                </div>
+                <div class="stat">
+                    <h2>
+                        4.9★
+                    </h2>
+                    <span>
+                        Visitor Rating
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="scroll-down">
+        Scroll Down
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+    <div class="container">
+        <div class="section-header text-center">
+            <span class="badge">
+                ABOUT TOBAVERSE
+            </span>
+            <h2>
+                Your Digital Gateway to
+                <br>
+                Lake Toba
+            </h2>
+            <p class="mx-auto">
+                TobaVerse is an all-in-one digital tourism platform that
+                connects travelers with the beauty, culture, and unique
+                experiences of Lake Toba through one seamless website.
+            </p>
+        </div>
+        <div class="about-grid">
+            <div class="about-image">
+                <img src="assets/images/home/about-lake-toba-panorama.png"
+                    alt="Beautiful landscape of Lake Toba"
+                    class="img-cover">
+                <div class="about-floating">
+                    <h4>
+                        <i class="bi bi-geo-alt-fill"></i>
+                        Lake Toba
+                    </h4>
+                    <div class="floating-item">
+                        <i class="bi bi-star-fill"></i>
+                        <span>4.9 Visitor Rating</span>
+                    </div>
+                    <div class="floating-item">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <span>100+ Destinations</span>
+                    </div>
+                    <div class="floating-item">
+                        <i class="bi bi-palette-fill"></i>
+                        <span>30+ Cultural Experiences</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-content">
+                <h3>
+                    Explore More Than Just
+                    Tourist Destinations
+                </h3>
+                <p>
+                    TobaVerse helps travelers discover breathtaking
+                    landscapes, authentic Batak culture, local culinary
+                    delights, travel routes, accommodation information,
+                    interactive maps, and local events in one integrated
+                    platform.
+                </p>
+                <div class="about-features">
+                    <div class="card about-card">
+                        <h4>
+                            🌍 Explore
+                        </h4>
+                        <p>
+                            Discover iconic destinations,
+                            hidden gems,
+                            and scenic viewpoints around
+                            Lake Toba.
+                        </p>
+                    </div>
+                    <div class="card about-card">
+                        <h4>
+                            🎭 Experience
+                        </h4>
+                        <p>
+                            Learn about Batak traditions,
+                            history,
+                            architecture,
+                            and cultural heritage.
+                        </p>
+                    </div>
+                    <div class="card about-card">
+                        <h4>
+                            🧭 Plan
+                        </h4>
+                        <p>
+                            Organize your itinerary,
+                            travel routes,
+                            and activities more efficiently.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY VISIT LAKE TOBA -->
+
+<section class="why">
+    <div class="container">
+        <div class="section-header text-center">
+            <span class="badge">
+                WHY LAKE TOBA
+            </span>
+            <h2>
+                Discover Why Lake Toba is Extraordinary
+            </h2>
+           <p class="section-description">
+            Discover breathtaking landscapes, rich Batak heritage, and unforgettable adventures in one extraordinary destination.
+           </p>
+        </div>
+        <div class="grid grid-4 why-grid">
+            <article class="card why-card">
+                <div class="why-icon">
+                    <i class="bi bi-globe-asia-australia"></i>
+                </div>
+                <h3>
+                    UNESCO Global Geopark
+                </h3>
+                <p>
+                    Recognized as a UNESCO Global Geopark with extraordinary geological heritage and breathtaking volcanic landscapes.
+                </p>
+            </article>
+            <article class="card why-card">
+                <div class="why-icon">
+                    <i class="bi bi-bank"></i>
+                </div>
+                <h3>
+                    Rich Batak Heritage
+                </h3>
+                <p>
+                    Discover authentic Batak traditions, historic villages, cultural performances, and timeless local wisdom.
+                </p>
+            </article>
+            <article class="card why-card">
+                <div class="why-icon">
+                    <i class="bi bi-image"></i>
+                </div>
+                <h3>
+                    Spectacular Nature
+                </h3>
+                <p>
+                    Enjoy panoramic mountains, crystal-clear waters, lush forests, waterfalls, and unforgettable scenic viewpoints.
+                </p>
+                            </article>
+            <article class="card why-card">
+                <div class="why-icon">
+                    <i class="bi bi-compass"></i>
+                </div>
+                <h3>
+                    Memorable Adventures
+                </h3>
+                <p>
+                    Experience trekking, cycling, island hopping, boating, and exciting outdoor adventures around Lake Toba.
+                </p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- PLATFORM FEATURES -->
+
+<section class="features">
+    <div class="container">
+        <div class="section-header text-center">
+            <span class="badge">
+                Platform Features
+            </span>
+            <h2 class="section-title">
+                Explore Lake Toba with Smart Digital Features
+            </h2>
+            <p class="section-description">
+                From discovering destinations to planning your journey, TobaVerse provides everything you need for a seamless travel experience.
+            </p>
+        </div>
+        <div class="grid grid-3 feature-grid">
+            <a href="explore.html"
+               class="card feature-card">
+                <div class="feature-icon">
+                    <i class="bi bi-compass"></i>
+                </div>
+                <h3>
+                    Explore 
+                </h3>
+                <p>
+                    Browse famous attractions, hidden gems, and recommended destinations.
+                </p>
+                <span class="feature-link">
+                    Explore Destinationsu
+                    <i class="bi bi-arrow-right"></i>
+                </span>
+            </a>
+            <a href="culture.html"
+                class="card feature-card">
+            <div class="feature-icon">
+                <i class="bi bi-bank"></i>
+            </div>
+            <h3>Culture</h3>
+            <p>
+                Discover Batak traditions, historical sites, and local heritage.
+            </p>
+            <span class="feature-link">
+                Discover Culture
+                <i class="bi bi-arrow-right"></i>
+            </span>
+        </a>
+            <a href="culinary.html"
+               class="card feature-card">
+                <div class="feature-icon">
+                    <i class="bi bi-cup-hot"></i>
+                </div>
+                <h3>
+                    Culinary
+                </h3>
+               <p>
+                    Experience authentic Batak cuisine and local coffee.
+               </p>
+
+               <span class="feature-link">
+                    Explore Cuisine
+                    <i class="bi bi-arrow-right"></i>
+                </span>
+                </a>
+            <a href="journey.html"
+               class="card feature-card">
+                <div class="feature-icon">
+                    <i class="bi bi-map"></i>
+                </div>
+                <h3>
+                    Journey Planner
+                </h3>
+                <p>
+                    Build personalized travel itineraries for your perfect vacation.
+                </p>
+                <span class="feature-link">
+                    Plan Journey
+                    <i class="bi bi-arrow-right"></i>
+                </span>
+            </a>
+            <a href="map.html"
+               class="card feature-card">
+                <div class="feature-icon">
+                    <i class="bi bi-pin-map"></i>
+                </div>
+                <h3>
+                    Interactive Map
+                </h3>
+                <p>
+                    Navigate destinations with interactive tourism maps.
+                </p>
+                <span class="feature-link">
+                    Open Map
+                    <i class="bi bi-arrow-right"></i>
+                </span>
+            </a>
+            <a href="events.html"
+               class="card feature-card">
+                <div class="feature-icon">
+                    <i class="bi bi-calendar-event"></i>
+                </div>
+                <h3>
+                    Events
+                </h3>
+                <p>
+                    Stay updated with festivals, cultural celebrations, and local activities.
+                </p>
+                <span class="feature-link">
+                    View Events
+                    <i class="bi bi-arrow-right"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CULTURE -->
+
+<section class="culture">
+    <div class="container">
+        <div class="section-header text-center">
+            <span class="badge">
+                BATAK HERITAGE
+            </span>
+            <h2>
+                Experience the Rich Culture of Lake Toba
+            </h2>
+            <p class="mx-auto">
+                Discover the traditions, history, architecture, music, dance, and local wisdom of the Batak people that have been preserved for generations.
+            </p>
+        </div>
+        <div class="culture-grid">
+            <div class="culture-image">
+                <img
+                    src="assets/images/home/rumah-bolon.jpg"
+                    alt="Traditional Batak House"
+                    class="img-cover">
+            </div>
+            <div class="culture-content">
+                <h3>
+                    More Than Beautiful Landscapes
+                </h3>
+                <p>
+                    Lake Toba is home to one of Indonesia's richest cultural heritages. Explore traditional Batak houses, sacred villages, local ceremonies, Tortor dance, Gondang music, and unique stories passed down through generations.
+                </p>
+            <div class="culture-highlights">
+            <div class="highlight-item">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Traditional Batak Villages</span>
+            </div>
+            <div class="highlight-item">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Authentic Gondang Music</span>
+            </div>
+            <div class="highlight-item">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Tortor Cultural Dance</span>
+            </div>
+
+            <div class="highlight-item">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Centuries of Local Wisdom</span>
+            </div>
+            </div>
+        <a href="culture.html" class="btn-primary">
+            Explore Culture
+        </a>
+        </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CULINARY -->
+
+<section class="culinary">
+    <div class="container">
+        <div class="section-header text-center">
+            <span class="badge">
+                LOCAL FLAVORS
+            </span>
+            <h2>
+                Taste the Authentic Flavors of Lake Toba
+            </h2>
+            <p class="mx-auto">
+                Enjoy traditional Batak cuisine, local coffee,  fresh seafood, and unforgettable culinary experiences around Lake Toba.
+            </p> 
+        </div>
+        <div class="grid grid-3 culinary-grid">
+            <article class="card culinary-card">
+                <img
+                    src="assets/images/home/arsik.jpg"
+                    alt="Arsik Fish"
+                    class="img-cover">
+                <div class="culinary-content">
+                    <span class="badge">
+                        Signature Dish
+                    </span>
+                    <h3>
+                        Arsik
+                    </h3>
+                    <p>
+                        A traditional Batak fish dish cooked with rich spices such as andaliman, turmeric, and local herbs.
+                    </p>
+                    <a href="culinary.html"
+                       class="btn-primary">
+                        Explore More
+                    </a>
+                </div>
+            </article>
+            <article class="card culinary-card">
+               <img
+                    src="assets/images/culinary/mie-gomak.jpg"
+                    alt="Mie Gomak"
+                    class="img-cover mie-gomak-image">
+                <div class="culinary-content">
+                    <span class="badge">
+                        Traditional Noodle
+                    </span>
+                    <h3>
+                        Mie Gomak
+                    </h3>
+                    <p>
+                        A signature Batak noodle dish served with rich traditional spices and fresh local ingredients, offering an authentic taste of North Sumatra.
+                    </p>
+                    <a href="culinary.html"
+                       class="btn-primary">
+                        Explore More
+                    </a>
+                </div>
+            </article>
+            <article class="card culinary-card">
+                <img
+                    src="assets/images/home/lintong-coffee.jpg"
+                    alt="Lintong Coffee"
+                    class="img-cover">
+                <div class="culinary-content">
+                    <span class="badge">
+                        Local Coffee
+                    </span>
+                    <h3>
+                        Lintong Coffee
+                    </h3>
+                    <p>
+                        Experience one of Indonesia's finest Arabica coffees grown in the highlands surrounding Lake Toba.
+                    </p>
+                    <a href="culinary.html"
+                       class="btn-primary">
+                        Explore More
+                    </a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- JOURNEY PLANNER -->
+
+<section class="journey">
+    <div class="container">
+        <div class="journey-grid">
+            <div class="journey-content">
+                <span class="badge">
+                    SMART JOURNEY
+                </span>
+                <h2>
+                    Plan Your Perfect Trip Around Lake Toba
+                </h2>
+                <p>
+                    Organize your destinations, estimate travel time, discover recommended routes, and build your own personalized itinerary for an unforgettable journey.
+                </p>
+                <ul class="journey-list">
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>Personalized itinerary planner</span>
+                    </li>
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>Recommended travel routes</span>
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>Estimated travel duration</span>
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>Smart destination suggestions</span>
+                    </li>
+                </ul>
+                <a href="journey.html"
+                   class="btn-primary">
+                    Open Journey Planner
+                </a>
+            </div>
+            <div class="journey-image">
+                <img src="assets/images/home/journey-preview.jpg"
+                     alt="Journey Planner"
+                     class="img-cover">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INTERACTIVE MAP -->
+
+<section class="map">
+    <div class="container">
+        <div class="section-header text-center">
+            <span class="badge">
+                INTERACTIVE MAP
+            </span>
+            <h2>
+                Explore Lake Toba with an Interactive Map
+            </h2>
+            <p class="mx-auto">
+                Easily locate attractions, restaurants, villages, viewpoints, ports, and tourism facilities through one interactive map.
+            </p>
+        </div>
+        <div class="card map-card">
+            <img src="assets/images/home/map-preview.jpg"
+                 alt="Lake Toba Interactive Map"
+                 class="img-cover">
+            <div class="map-overlay">
+                <h3>
+                    Smart Tourism Map
+                </h3>
+                <p>
+                    Navigate your journey with integrated maps and location information.
+                </p>
+                <div class="map-features">
+                <div class="feature-item">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <span>100+ Attractions</span>
+                </div>
+                <div class="feature-item">
+                    <i class="bi bi-signpost-fill"></i>
+                    <span>Ferry Routes</span>
+                </div>
+                <div class="feature-item">
+                    <i class="bi bi-building"></i>
+                    <span>Hotels Nearby</span>
+                </div>
+                <div class="feature-item">
+                    <i class="bi bi-cup-hot-fill"></i>
+                    <span>Local Restaurants</span>
+                </div>
+            </div>
+                <a href="map.html"
+                   class="btn-primary">
+                    Open Interactive Map
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EVENTS -->
+
+<section class="events">
+    <div class="container">
+        <div class="section-header text-center">
+            <span class="badge">
+                UPCOMING EVENTS
+            </span>
+            <h2>
+                Celebrate the Spirit of Lake Toba
+            </h2>
+            <p class="mx-auto">
+                Join cultural festivals, traditional performances, local markets, and exciting community events throughout the year.
+            </p>
+        </div>
+        <div class="grid grid-3 event-grid">
+            <article class="card event-card">
+                <img src="assets/images/home/festival-danau-toba.jpg"
+                     alt="Lake Toba Festival"
+                     class="img-cover">
+                <div class="event-content">
+                    <span class="badge">
+                        Annual Festival
+                    </span>
+                    <h3>
+                        Lake Toba Festival
+                    </h3>
+                    <p>
+                        Experience Lake Toba's biggest cultural celebration featuring traditional performances, music concerts, culinary exhibitions, and local heritage.
+                    </p>
+                    <a href="events.html"
+                       class="btn-primary">
+                        Explore More
+                    </a>
+                </div>
+            </article>
+            <article class="card event-card">
+                <img src="assets/images/home/tortor-dance.jpg"
+                     alt="Traditional Dance"
+                     class="img-cover">
+                <div class="event-content">
+                    <span class="badge">
+                        Live Performance
+                    </span>
+                    <h3>
+                        Tortor Dance Show
+                    </h3>
+                    <p>
+                        Witness the beauty of Batak traditions through graceful Tortor dances, Gondang music, and authentic cultural performances.
+                    </p>
+                    <a href="events.html"
+                       class="btn-primary">
+                        Explore More
+                    </a>
+                </div>
+            </article>
+            <article class="card event-card">
+                <img src="assets/images/home/local-market.jpg"
+                     alt="Local Market"
+                     class="img-cover">
+                <div class="event-content">
+                    <span class="badge">
+                        Local Experience
+                    </span>
+                    <h3>
+                        Craft & Food Market
+                    </h3>
+                    <p>
+                        Explore vibrant local markets offering Batak textiles, handmade souvenirs, traditional snacks, and artisan products.
+                    </p>
+                    <a href="events.html"
+                       class="btn-primary">
+                        Explore More
+                    </a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- CALL TO ACTION -->
+
+<section class="cta">
+    <div class="container">
+        <div class="cta-box">
+            <span class="badge">
+                START YOUR JOURNEY
+            </span>
+            <h2>
+                Start Your Lake Toba Journey Today
+            </h2>
+            <p>
+                Discover breathtaking destinations, rich Batak culture, and unforgettable experiences across Lake Toba.
+            </p>
+            <div class="cta-buttons">
+                <a href="explore.html"
+                   class="btn-primary">
+                    Explore Destinations
+                </a>
+                <a href="journey.html"
+                   class="btn-secondary">
+                    Plan My Trip
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <!-- Brand -->
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">
+                    <img src="assets/images/branding/logo-white.png"
+                        alt="TobaVerse Logo">
+                </a>
+                <p>
+                    TobaVerse is your premium digital companion for discovering breathtaking
+                    landscapes, authentic Batak culture, local cuisine, and unforgettable
+                    journeys across Lake Toba.
+                </p>
+                <div class="footer-social">
+                    <a href="#">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="#">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="#">
+                        <i class="bi bi-tiktok"></i>
+                    </a>
+                    <a href="#">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- Explore -->
+            <div class="footer-column">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="explore.html">Destinations</a></li>
+                    <li><a href="culture.html">Culture</a></li>
+                    <li><a href="culinary.html">Culinary</a></li>
+                    <li><a href="events.html">Events</a></li>
+                </ul>
+            </div>
+            <!-- Travel -->
+            <div class="footer-column">
+                <h3>Travel</h3>
+                <ul>
+                    <li><a href="journey.html">Journey Planner</a></li>
+                    <li><a href="map.html">Interactive Map</a></li>
+                    <li><a href="explore.html">Travel Guide</a></li>
+                </ul>
+            </div>
+            <!-- Contact -->
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <span>Lake Toba, North Sumatra</span>
+                    </li>
+                    <li>
+                        <i class="bi bi-envelope-fill"></i>
+                        <span>hello@tobaverse.com</span>
+                    </li>
+                    <li>
+                        <i class="bi bi-telephone-fill"></i>
+                        <span>+62 812 3456 7890</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                © 2026 TobaVerse. All Rights Reserved.
+            </p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms</a>
+                <a href="#">Sitemap</a>
+            </div>
+        </div>
+    </div>
+</footer>
+</main>
+<!-- CHATBOT WIDGET -->
+<div class="chat-widget">
+
+    <button id="chatToggleBtn" class="chat-btn" aria-label="Buka TobaVerse Assistant">
+        <i class="bi bi-chat-dots-fill"></i>
+    </button>
+
+    <div id="chatBox" class="chat-box">
+        <div class="chat-header">
+            <div>
+                <h4>TobaVerse Assistant</h4>
+                <span>Tanya apa saja soal Danau Toba</span>
+            </div>
+            <button id="chatCloseBtn" class="chat-close-btn" aria-label="Tutup chat">
+                &times;
+            </button>
+        </div>
+
+        <div id="chatMessages" class="chat-messages">
+             <div class="chat-msg bot">Horas! <br />Saya Ompung Bot, siap membantu kamu menemukan destinasi wisata, kuliner, penginapan, atau transportasi di sekitar Danau Toba. Mau tanya apa?</div>
+            <div id="chatQuickActions" class="chat-quick-actions"></div>
+        </div>
+
+        <div class="chat-input-area">
+            <input
+                type="text"
+                id="chatInput"
+                placeholder="Tulis pertanyaanmu..."
+                autocomplete="off">
+            <button id="chatSendBtn" class="chat-send-btn" aria-label="Kirim pesan">
+                <i class="bi bi-send-fill"></i>
+            </button>
+        </div>
+    </div>
+
+</div>
+<script src="js/script.js"></script>
+<script src="js/music.js"></script>
+<script src="js/chatbot.js"></script>
+
+</body>
+</html>

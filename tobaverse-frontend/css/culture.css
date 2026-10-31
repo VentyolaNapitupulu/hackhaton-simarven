@@ -1,0 +1,406 @@
+/* ==========================================================================
+   TobaVerse — Culture Page Stylesheet
+   Same tokens as style.css / explore.css: navy, lake, emerald, clay, ulos,
+   paper, Poppins + Space Mono, radius-lg/md/sm, shadow-soft/lift.
+   ========================================================================== */
+
+/* ---- Culture hero -------------------------------------------------------- */
+.culture-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  color: var(--paper);
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(7,20,27,0.42) 0%, rgba(7,20,27,0.6) 55%, rgba(7,20,27,0.94) 100%),
+    linear-gradient(120deg, rgba(29,111,140,0.32), rgba(11,46,61,0.24)),
+    url("../assets/images/hero/culture-hero.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.culture-hero .contour-field { opacity: 0.28; mix-blend-mode: soft-light; }
+.culture-hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 200px clamp(20px, 5vw, 48px) 76px;
+}
+.culture-hero .eyebrow { color: var(--clay-light); }
+.culture-hero h1 {
+  color: var(--paper);
+  font-size: clamp(2.4rem, 5.6vw, 4.1rem);
+  font-weight: 800;
+  margin: 16px 0 16px;
+  max-width: 760px;
+}
+.culture-hero p.lede { max-width: 580px; color: rgba(251,249,244,0.8); font-size: 1.02rem; }
+.culture-hero .hero-actions { margin-top: 34px; display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* ---- Section shell shared by this page ----------------------------------- */
+.c-section { padding: 108px 0; }
+.c-section.tint { background: var(--paper-dim); }
+
+/* ---- 1. Cultural categories (full-bleed image cards) ----------------------- */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+.category-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-height: 260px;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: var(--shadow-soft);
+  transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease;
+}
+.category-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lift); }
+
+.category-card .cat-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: transform .6s ease;
+}
+.category-card:hover .cat-bg { transform: scale(1.08); }
+.category-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7,20,27,0.05) 38%, rgba(7,20,27,0.9) 100%);
+  z-index: 1;
+}
+
+.category-card .cat-body {
+  position: relative;
+  z-index: 2;
+  padding: 22px 24px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.category-card h3 { color: var(--paper); font-size: 1.12rem; }
+.category-card p { color: rgba(251,249,244,0.82); font-size: 0.9rem; }
+.category-card .goto-btn {
+  margin-top: 12px;
+  align-self: flex-start;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: rgba(251,249,244,0.14);
+  border: 1px solid rgba(251,249,244,0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--paper);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: background .25s ease, color .25s ease;
+}
+.category-card .goto-btn svg { width: 12px; height: 12px; transition: transform .25s ease; }
+.category-card:hover .goto-btn { background: var(--clay); color: var(--navy); border-color: var(--clay); }
+.category-card:hover .goto-btn svg { transform: translateX(4px); }
+
+/* ---- 2. Timeline ----------------------------------------------------------- */
+.timeline-wrap { position: relative; }
+.timeline-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  position: relative;
+  margin-bottom: 46px;
+}
+.timeline-track::before {
+  content: "";
+  position: absolute;
+  top: 21px; left: 0; right: 0;
+  height: 2px;
+  background: rgba(11,46,61,0.12);
+  z-index: 0;
+}
+.timeline-track .fill-line {
+  position: absolute;
+  top: 21px; left: 0;
+  height: 2px;
+  background: var(--clay);
+  z-index: 0;
+  transition: width .5s cubic-bezier(.2,.8,.2,1);
+}
+.era-btn {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  padding: 0;
+}
+.era-btn .dot {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid rgba(11,46,61,0.16);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--navy);
+  transition: all .3s ease;
+}
+.era-btn span.label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #4B6067;
+  text-align: center;
+}
+.era-btn.is-active .dot { background: var(--navy); border-color: var(--navy); color: var(--paper); transform: scale(1.12); }
+.era-btn.is-active span.label { color: var(--navy); }
+.era-btn:hover .dot { border-color: var(--emerald); }
+
+.era-panel {
+  border-radius: var(--radius-lg);
+  background: var(--navy);
+  color: var(--paper);
+  padding: clamp(28px, 4vw, 48px);
+  display: grid;
+  grid-template-columns: 0.9fr 1.4fr;
+  gap: 36px;
+  position: relative;
+  overflow: hidden;
+  min-height: 260px;
+}
+.era-panel .era-period {
+  font-family: var(--font-mono);
+  color: var(--clay-light);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.era-panel h3 { color: var(--paper); font-size: clamp(1.5rem, 2.6vw, 2rem); margin-top: 10px; }
+.era-panel .era-desc { color: rgba(251,249,244,0.78); margin-top: 16px; }
+.era-panel .era-points { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+.era-panel .era-points li {
+  padding-left: 20px;
+  position: relative;
+  font-size: 0.92rem;
+  color: rgba(251,249,244,0.82);
+}
+.era-panel .era-points li::before {
+  content: "";
+  position: absolute; left: 0; top: 8px;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--clay);
+}
+
+/* ---- 3. Clan grid + modal --------------------------------------------------- */
+.clan-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+}
+.clan-card {
+  border-radius: var(--radius-md);
+  background: #fff;
+  border: 1px solid rgba(11,46,61,0.08);
+  box-shadow: var(--shadow-soft);
+  padding: 26px 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.clan-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lift); }
+.clan-card .glyph {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--paper);
+  font-size: 1.1rem;
+}
+.clan-card h4 { font-size: 1rem; }
+.clan-card span.tag { font-family: var(--font-mono); font-size: 0.7rem; color: var(--emerald); text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* ---- 4. Traditional houses — photo gallery --------------------------------- */
+.house-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+.house-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease;
+}
+.house-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lift); }
+.house-thumb {
+  position: relative;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  background: var(--paper-dim);
+}
+.house-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s ease;
+}
+.house-card:hover .house-thumb img { transform: scale(1.08); }
+.house-body { padding: 24px 26px 28px; }
+.house-body h3 { color: var(--navy); font-size: 1.24rem; }
+.house-body p { color: #4B6067; font-size: 0.94rem; margin-top: 10px; }
+
+/* ---- 5. Ulos gallery --------------------------------------------------------- */
+.ulos-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.ulos-item {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  transition: box-shadow .3s ease;
+}
+.ulos-item:hover, .ulos-item:focus-within { box-shadow: var(--shadow-lift); }
+.ulos-item img.photo {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .6s cubic-bezier(.2,.8,.2,1);
+}
+.ulos-item:hover img.photo, .ulos-item:focus-within img.photo { transform: scale(1.14) rotate(1deg); }
+.ulos-item .caption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 18px 18px 16px;
+  background: linear-gradient(0deg, rgba(7,20,27,0.92), transparent);
+  color: var(--paper);
+  transform: translateY(12px);
+  opacity: 0.94;
+  transition: transform .3s ease;
+}
+.ulos-item .caption h4 { color: var(--paper); font-size: 1rem; }
+.ulos-item .caption p {
+  font-size: 0.82rem;
+  color: rgba(251,249,244,0.8);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height .35s ease, opacity .35s ease, margin-top .35s ease;
+}
+.ulos-item:hover .caption p, .ulos-item:focus-within .caption p {
+  max-height: 90px; opacity: 1; margin-top: 6px;
+}
+.ulos-item:hover .caption, .ulos-item:focus-within .caption { transform: translateY(0); }
+
+/* ---- 6. Dalihan Na Tolu diagram ---------------------------------------------- */
+.philosophy-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+.dnt-diagram { position: relative; aspect-ratio: 1/1; max-width: 460px; margin: 0 auto; }
+.dnt-diagram svg { width: 100%; height: 100%; }
+.dnt-node {
+  cursor: pointer;
+  transition: transform .3s ease;
+  transform-origin: center;
+}
+.dnt-node:hover, .dnt-node.is-active { transform: scale(1.08); }
+.dnt-node circle.base { transition: fill .3s ease; }
+.dnt-node.is-active circle.base { fill: var(--clay); }
+.dnt-node text { font-family: var(--font-body); font-weight: 700; fill: var(--paper); font-size: 6.4px; text-anchor: middle; pointer-events: none; }
+.dnt-ring { fill: none; stroke: rgba(11,46,61,0.14); stroke-dasharray: 4 5; animation: dnt-spin 40s linear infinite; transform-origin: 50% 50%; }
+@keyframes dnt-spin { to { transform: rotate(360deg); } }
+
+.philosophy-detail { display: flex; flex-direction: column; gap: 14px; }
+.philosophy-detail .role-card {
+  display: none;
+  padding: 22px 24px;
+  border-radius: var(--radius-md);
+  background: var(--paper-dim);
+  border-left: 4px solid var(--clay);
+}
+.philosophy-detail .role-card.show { display: block; }
+.philosophy-detail .role-card .role-tag { font-family: var(--font-mono); font-size: 0.72rem; color: var(--emerald); letter-spacing: 0.05em; text-transform: uppercase; }
+.philosophy-detail .role-card h3 { margin-top: 6px; }
+.philosophy-detail .role-card p { color: #46606A; margin-top: 8px; font-size: 0.94rem; }
+
+/* ---- Reused modal (clan story) ----------------------------------------------- */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(7,20,27,0.72);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center; justify-content: center;
+  z-index: 900;
+  padding: 24px;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--paper);
+  border-radius: var(--radius-lg);
+  max-width: 720px;
+  width: 100%;
+  max-height: 86vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-lift);
+  animation: modalIn .35s cubic-bezier(.2,.8,.2,1);
+}
+@keyframes modalIn { from { opacity: 0; transform: translateY(24px) scale(.98); } to { opacity: 1; transform: none; } }
+.modal-header { position: relative; padding: 40px 34px 26px; color: var(--paper); overflow: hidden; }
+.modal-header h2 { color: var(--paper); font-size: clamp(1.4rem, 3vw, 1.9rem); position: relative; z-index: 1; }
+.modal-header .badge { display: inline-block; padding: 5px 13px; border-radius: 999px; background: var(--clay); color: var(--navy); font-size: 0.7rem; font-weight: 700; margin-bottom: 10px; position: relative; z-index: 1; }
+.modal-close {
+  position: absolute; top: 18px; right: 18px;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(251,249,244,0.18); color: var(--paper);
+  display: grid; place-items: center; z-index: 3;
+  transition: background .2s ease, transform .2s ease;
+}
+.modal-close:hover { background: var(--ulos); transform: rotate(90deg); }
+.modal-body-inner { padding: 6px 34px 34px; }
+.modal-body-inner p { color: #3E5359; font-size: 0.95rem; margin-bottom: 14px; }
+.modal-body-inner .modal-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.modal-body-inner .modal-tags span { padding: 6px 13px; border-radius: 999px; background: var(--paper-dim); font-size: 0.8rem; color: var(--navy); font-weight: 500; }
+
+/* ---- Responsive ---------------------------------------------------------------- */
+@media (max-width: 1080px) {
+  .category-grid { grid-template-columns: repeat(2, 1fr); }
+  .clan-grid { grid-template-columns: repeat(3, 1fr); }
+  .ulos-gallery { grid-template-columns: repeat(2, 1fr); }
+  .timeline-track { grid-template-columns: repeat(4, 1fr); }
+  .era-panel { grid-template-columns: 1fr; }
+  .philosophy-wrap { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .category-grid { grid-template-columns: 1fr; }
+  .clan-grid { grid-template-columns: repeat(2, 1fr); }
+  .house-grid { grid-template-columns: 1fr; }
+  .ulos-gallery { grid-template-columns: 1fr 1fr; }
+  .timeline-track { grid-template-columns: repeat(2, 1fr); row-gap: 30px; }
+  .timeline-track::before, .timeline-track .fill-line { display: none; }
+}

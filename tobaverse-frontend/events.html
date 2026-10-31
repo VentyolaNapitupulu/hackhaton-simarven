@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Events & Festivals — TobaVerse</title>
+<meta name="description" content="Discover Lake Toba's festivals and cultural events — Festival Danau Toba, Horas Samosir Fiesta, F1 Powerboat, and the living traditions of the Batak Toba." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/events.css" />
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="css/chatbot.css">
+  </head>
+
+<audio id="bgMusic" loop preload="auto">
+    <source src="assets/audio/Uningan.mp3" type="audio/mpeg">
+</audio>
+
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- NAVBAR (identical to every other page) -->
+<header class="site-nav">
+    <a href="index.html" class="brand" aria-label="TobaVerse Home">
+        <img
+            src="assets/images/branding/logo.png"
+            alt="TobaVerse Logo">
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="culture.html">Culture</a>
+        <a href="culinary.html">Culinary</a>
+        <a href="journey.html">Journey</a>
+        <a href="events.html" class="active">Events</a>
+        <a href="map.html">Map</a>
+    </nav>
+    <div class="nav-actions">
+        <button id="musicToggle" class="music-btn" aria-label="Toggle Background Music" type="button">
+            🎵
+        </button>
+        <a class="nav-cta" href="journey.html">
+            Plan My Trip
+        </a>
+    </div>
+    <button
+        class="nav-toggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false">
+        <span></span>
+    </button>
+</header>
+
+<main id="main">
+
+  <!-- SECTION 1: HERO BANNER ================================================ -->
+  <section class="events-hero">
+    <div class="events-hero-inner">
+      <span class="eyebrow reveal fade-up">Batak Festivals &amp; Celebrations</span>
+      <h1 class="reveal fade-up" data-delay="60">Experience the Vibrant Events of Lake Toba</h1>
+      <p class="lede reveal fade-up" data-delay="120">
+        Celebrate the rich traditions, music, culture, and festivals that bring Lake Toba
+        to life throughout the year. Discover authentic Batak heritage through unforgettable
+        events and community celebrations.
+      </p>
+      <div class="hero-actions reveal fade-up" data-delay="180">
+        <a href="#events" class="btn btn-primary">Explore Events</a>
+      </div>
+    </div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <span>Scroll</span>
+      <span class="line"></span>
+    </div>
+  </section>
+
+  <!-- SECTION 2: FEATURED EVENT ============================================= -->
+  <section class="e-section" id="events">
+    <div class="container">
+      <div class="section-head reveal fade-up">
+        <div>
+          <span class="eyebrow">Signature Celebration</span>
+          <h2 class="section-title">Featured Event</h2>
+        </div>
+      </div>
+
+      <div class="featured-event reveal fade-up">
+        <div class="fe-media">
+          <span class="fe-badge">Signature Event</span>
+          <img src="assets/images/events/festival-danau-toba.jpg" alt="Festival Danau Toba, the region's signature cultural celebration" loading="lazy" width="640" height="480" />
+        </div>
+        <div class="fe-body">
+          <h3>Festival Danau Toba</h3>
+          <div class="fe-meta">
+            <div class="meta"><span class="label">Location</span><span class="value">Around Lake Toba</span></div>
+            <div class="meta"><span class="label">Date</span><span class="value">TBA</span></div>
+          </div>
+          <p class="desc">
+            Festival Danau Toba is the region's signature cultural celebration featuring
+            traditional Batak performances, culinary exhibitions, local crafts, music,
+            sports activities, and cultural showcases held across destinations surrounding
+            Lake Toba.
+          </p>
+          <a href="#timeline" class="btn btn-dark">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: UPCOMING EVENTS ============================================= -->
+  <section class="e-section tint">
+    <div class="container">
+      <div class="section-head reveal fade-up">
+        <div>
+          <span class="eyebrow">Mark Your Calendar</span>
+          <h2 class="section-title">Upcoming Events</h2>
+        </div>
+        <p class="section-lede">Festivals and celebrations held around Lake Toba throughout the year.</p>
+      </div>
+
+      <div class="events-grid" id="eventsGrid" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: CULTURAL EXPERIENCES ========================================= -->
+  <section class="e-section">
+    <div class="container">
+      <div class="section-head reveal fade-up">
+        <div>
+          <span class="eyebrow">Living Heritage</span>
+          <h2 class="section-title">Cultural Experiences</h2>
+        </div>
+      </div>
+
+      <div class="experience-grid" id="experienceGrid" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: ANNUAL EVENT TIMELINE ======================================== -->
+  <section class="e-section tint" id="timeline">
+    <div class="container">
+      <div class="section-head reveal fade-up">
+        <div>
+          <span class="eyebrow">Plan Ahead</span>
+          <h2 class="section-title">Annual Event Timeline</h2>
+        </div>
+        <p class="section-lede">A month-by-month look at when Lake Toba's festivals typically take place. Official dates are announced closer to each event.</p>
+      </div>
+
+      <div class="timeline-scroll" id="timelineScroll" aria-label="Annual event timeline, scrollable by month"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: EVENT GALLERY ================================================ -->
+  <section class="e-section">
+    <div class="container">
+      <div class="section-head reveal fade-up">
+        <div>
+          <span class="eyebrow">Moments Captured</span>
+          <h2 class="section-title">Event Gallery</h2>
+        </div>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid" aria-label="Gallery of Lake Toba cultural events"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: CTA ========================================================== -->
+  <section class="cta-band">
+    <div class="cta-inner events-cta reveal fade-up">
+      <div>
+        <h2>Celebrate the Spirit of Lake Toba</h2>
+        <p>From colorful festivals to timeless Batak traditions, every visit offers unforgettable cultural experiences waiting to be explored.</p>
+      </div>
+      <a href="journey.html" class="btn btn-dark">Plan Your Journey →</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER (identical to every other page) ================================== -->
+<!-- FOOTER -->
+
+<footer class="footer">
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <!-- Brand -->
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="footer-logo">
+
+                    <img
+                        src="assets/images/branding/logo-white.png"
+                        alt="TobaVerse Logo">
+
+                </a>
+
+                <p>
+                    TobaVerse is your premium digital companion for discovering breathtaking
+                    landscapes, authentic Batak culture, local cuisine, and unforgettable
+                    journeys across Lake Toba.
+                </p>
+
+                <div class="footer-social">
+
+                    <a href="#" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#" aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a href="#" aria-label="TikTok">
+                        <i class="bi bi-tiktok"></i>
+                    </a>
+
+                    <a href="#" aria-label="YouTube">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Explore -->
+
+            <div class="footer-column">
+
+                <h3>Explore</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="explore.html">
+                            Destinations
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="culture.html">
+                            Culture
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="culinary.html">
+                            Culinary
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="events.html">
+                            Events
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Travel -->
+
+            <div class="footer-column">
+
+                <h3>Travel</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="journey.html">
+                            Journey Planner
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="map.html">
+                            Interactive Map
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="explore.html">
+                            Travel Guide
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Contact -->
+
+            <div class="footer-column">
+
+                <h3>Contact</h3>
+
+                <ul class="footer-contact">
+
+                    <li>
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <span>Lake Toba, North Sumatra</span>
+                    </li>
+
+                    <li>
+                        <i class="bi bi-envelope-fill"></i>
+                        <span>hello@tobaverse.com</span>
+                    </li>
+
+                    <li>
+                        <i class="bi bi-telephone-fill"></i>
+                        <span>+62 812 3456 7890</span>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 TobaVerse. All Rights Reserved.
+            </p>
+
+            <div class="footer-bottom-links">
+
+                <a href="#">
+                    Privacy Policy
+                </a>
+
+                <a href="#">
+                    Terms
+                </a>
+
+                <a href="#">
+                    Sitemap
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- CHATBOT WIDGET -->
+
+<div class="chat-widget">
+
+    <button id="chatToggleBtn" class="chat-btn" aria-label="Buka TobaVerse Assistant">
+
+        <i class="bi bi-chat-dots-fill"></i>
+
+    </button>
+
+    <div id="chatBox" class="chat-box">
+
+        <div class="chat-header">
+
+            <div>
+
+                <h4>TobaVerse Assistant</h4>
+
+                <span>Tanya apa saja soal Danau Toba</span>
+
+            </div>
+
+            <button id="chatCloseBtn" class="chat-close-btn" aria-label="Tutup chat">
+
+                &times;
+
+            </button>
+
+        </div>
+
+        <div id="chatMessages" class="chat-messages">
+
+             <div class="chat-msg bot">Horas! <br />Saya Ompung Bot, siap membantu kamu menemukan destinasi wisata, kuliner, penginapan, atau transportasi di sekitar Danau Toba. Mau tanya apa?</div>
+            <div id="chatQuickActions" class="chat-quick-actions"></div>
+        </div>
+        <div class="chat-input-area">
+
+            <input
+
+                type="text"
+
+                id="chatInput"
+
+                placeholder="Tulis pertanyaanmu..."
+
+                autocomplete="off">
+
+            <button id="chatSendBtn" class="chat-send-btn" aria-label="Kirim pesan">
+
+                <i class="bi bi-send-fill"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/events.js"></script>
+<script src="js/script.js"></script>
+<script src="js/music.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

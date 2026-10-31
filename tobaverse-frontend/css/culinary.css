@@ -1,0 +1,327 @@
+/* ==========================================================================
+   TobaVerse — Culinary Page Stylesheet
+   Reuses tokens from style.css only (colors, radius, shadow, fonts, .btn,
+   .reveal, nav, footer). Everything below is page-specific to Culinary.
+   ========================================================================== */
+
+/* ---- Culinary hero: real photo background + dark gradient overlay -------- */
+.culinary-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  color: var(--paper);
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(7,20,27,0.38) 0%, rgba(7,20,27,0.58) 55%, rgba(7,20,27,0.94) 100%),
+    linear-gradient(120deg, rgba(199,125,46,0.22), rgba(11,46,61,0.2)),
+    url("../assets/images/hero/culinary-hero.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.culinary-hero .ulos-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  background: repeating-linear-gradient(
+    115deg,
+    var(--ulos) 0 14px,
+    var(--clay) 14px 28px,
+    var(--emerald) 28px 42px,
+    var(--navy) 42px 56px
+  );
+  mix-blend-mode: soft-light;
+}
+.culinary-hero .contour-field { opacity: 0.25; mix-blend-mode: soft-light; }
+.culinary-hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 200px clamp(20px, 5vw, 48px) 76px;
+}
+.culinary-hero .eyebrow { color: var(--clay-light); }
+.culinary-hero h1 {
+  color: var(--paper);
+  font-size: clamp(2.4rem, 5.6vw, 4.1rem);
+  font-weight: 800;
+  margin: 16px 0 16px;
+  max-width: 760px;
+}
+.culinary-hero p.lede { max-width: 580px; color: rgba(251,249,244,0.8); font-size: 1.02rem; }
+.culinary-hero .hero-actions { margin-top: 34px; display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* ---- Sticky search + filter toolbar --------------------------------------- */
+.culinary-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  padding: 16px clamp(20px, 5vw, 48px);
+  background: rgba(251, 249, 244, 0.86);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border-bottom: 1px solid rgba(11,46,61,0.08);
+}
+.culinary-toolbar-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.culinary-search-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--paper);
+  border-radius: 999px;
+  padding: 8px 8px 8px 18px;
+  border: 1px solid rgba(11,46,61,0.1);
+  flex: 1 1 260px;
+  min-width: 220px;
+}
+.culinary-search-row svg { flex: none; color: var(--clay); }
+.culinary-search-row input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: var(--font-body);
+  font-size: 0.96rem;
+  background: transparent;
+  color: var(--ink);
+  padding: 9px 0;
+}
+.culinary-search-row input::placeholder { color: #90A2A9; }
+
+.culinary-filter-row { display: flex; gap: 9px; flex-wrap: wrap; }
+.c-chip {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(11,46,61,0.14);
+  background: transparent;
+  color: var(--navy);
+  font-size: 0.83rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.c-chip:hover { border-color: var(--clay); color: var(--clay); }
+.c-chip.is-active { background: var(--navy); border-color: var(--navy); color: var(--paper); }
+
+/* ---- Food grid -------------------------------------------------------------- */
+.culinary-grid-section { padding: 76px 0 40px; }
+.food-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+    align-items:stretch;
+}
+.grid-empty {
+  display: none;
+  text-align: center;
+  padding: 80px 20px;
+  color: #5B6E75;
+}
+.grid-empty.show { display: block; }
+
+.food-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease;
+  display: flex;
+  flex-direction: column;
+  height : 100%;
+}
+.food-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lift); }
+
+.food-card .thumb {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--paper-dim);
+}
+.food-card .thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s ease;
+}
+.food-card:hover .thumb img { transform: scale(1.09); }
+
+.food-card .price-badge {
+  position: absolute; top: 16px; right: 16px;
+  padding: 6px 13px;
+  border-radius: 999px;
+  background: rgba(251,249,244,0.94);
+  color: var(--navy);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.76rem;
+  z-index: 2;
+}
+.food-card .cultural-tag {
+  position: absolute; top: 16px; left: 16px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--paper);
+  background: rgba(11,46,61,0.6);
+  backdrop-filter: blur(6px);
+  z-index: 2;
+}
+
+.food-card .body {
+  padding: 22px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.food-card .origin-line {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--emerald);
+  text-transform: uppercase;
+}
+.food-card h3 { font-size: 1.2rem; }
+.food-card p.desc { color: #4B6067; font-size: 0.92rem; }
+.food-card .taste-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom:18px;
+}
+.food-card .taste-row span {
+  display:inline-flex;
+  align-items:center;
+  padding:6px 12px;
+  background:#f3eee4;
+  color:#4b4b4b;
+  border-radius:999px;
+  font-size:.82rem;
+  font-weight:500;
+  white-space:nowrap;
+}
+.food-card .desc {
+  min-height: 95px;
+}
+
+.food-card .actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+.food-card .actions .btn { padding: 10px 16px; font-size: 0.82rem; }
+
+/* ---- Modal (self-contained for this page) ---------------------------------- */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(7,20,27,0.72);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center; justify-content: center;
+  z-index: 900;
+  padding: 24px;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--paper);
+  border-radius: var(--radius-lg);
+  max-width: 880px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-lift);
+  animation: modalIn .35s cubic-bezier(.2,.8,.2,1);
+}
+@keyframes modalIn { from { opacity: 0; transform: translateY(24px) scale(.98); } to { opacity: 1; transform: none; } }
+
+.modal-header { position: relative; aspect-ratio: 16/7; overflow: hidden; background: var(--navy); }
+.modal-header img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.modal-header .modal-title-wrap {
+  position: absolute; left: 0; bottom: 0; right: 0;
+  padding: 28px 34px;
+  background: linear-gradient(0deg, rgba(7,20,27,0.88), transparent);
+  color: var(--paper);
+}
+.modal-header .modal-title-wrap .badge {
+  display: inline-block;
+  padding: 5px 13px;
+  border-radius: 999px;
+  background: var(--clay);
+  color: var(--navy);
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.modal-header h2 { color: var(--paper); font-size: clamp(1.5rem, 3vw, 2.1rem); }
+.modal-close {
+  position: absolute; top: 18px; right: 18px;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(11,46,61,0.55); color: var(--paper);
+  display: grid; place-items: center; z-index: 3;
+  transition: background .2s ease, transform .2s ease;
+}
+.modal-close:hover { background: var(--ulos); transform: rotate(90deg); }
+
+.modal-body { padding: 30px 34px 40px; }
+.modal-intro { color: #3E5359; font-size: 1rem; margin-bottom: 22px; }
+.modal-meta-row {
+  display: flex; gap: 22px; flex-wrap: wrap;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(11,46,61,0.08);
+  margin-bottom: 26px;
+}
+.modal-meta-row .meta { display: flex; flex-direction: column; gap: 3px; }
+.modal-meta-row .meta span.label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--emerald); }
+.modal-meta-row .meta span.value { font-weight: 600; color: var(--navy); font-size: 0.92rem; }
+
+.modal-section { margin-bottom: 26px; }
+.modal-section h3 {
+  font-size: 1rem; text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--navy); display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+}
+.modal-section h3::before { content: ""; width: 18px; height: 3px; background: var(--clay); border-radius: 3px; display: inline-block; }
+.modal-section p { color: #3E5359; font-size: 0.95rem; }
+.modal-section ul { display: flex; flex-direction: column; gap: 8px; }
+.modal-section ul li { padding-left: 20px; position: relative; color: #3E5359; font-size: 0.93rem; }
+.modal-section ul li::before { content: ""; position: absolute; left: 0; top: 9px; width: 7px; height: 7px; border-radius: 50%; background: var(--emerald); }
+.modal-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.modal-tags span { padding: 6px 13px; border-radius: 999px; background: var(--paper-dim); font-size: 0.8rem; color: var(--navy); font-weight: 500; }
+
+.restaurant-list { display: flex; flex-direction: column; gap: 14px; }
+.restaurant-card {
+  border-radius: var(--radius-md);
+  background: var(--paper-dim);
+  padding: 20px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.restaurant-card .info h4 { font-size: 1.02rem; color: var(--navy); }
+.restaurant-card .info p { color: #4B6067; font-size: 0.88rem; margin-top: 4px; }
+.restaurant-card .info .r-meta { display: flex; gap: 14px; margin-top: 8px; flex-wrap: wrap; }
+.restaurant-card .info .r-meta span { font-family: var(--font-mono); font-size: 0.76rem; color: var(--emerald); }
+
+.modal-footer-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
+
+/* ---- Responsive -------------------------------------------------------------- */
+@media (max-width: 1080px) {
+  .food-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .food-grid { grid-template-columns: 1fr; }
+  .modal-body { padding: 24px 20px 30px; }
+  .culinary-toolbar-inner { flex-direction: column; align-items: stretch; }
+  .restaurant-card { flex-direction: column; align-items: stretch; }
+}

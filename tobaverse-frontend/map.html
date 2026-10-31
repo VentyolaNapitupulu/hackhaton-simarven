@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Interactive Map — TobaVerse</title>
+<meta name="description" content="Explore Lake Toba with an interactive illustrated map — destinations, ports, viewpoints, airports, museums, and villages around the caldera." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/map.css" />
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="css/chatbot.css">
+</head>
+
+<body>
+<audio id="bgMusic" loop preload="auto">
+    <source src="assets/audio/batak-theme.mp3" type="audio/mpeg">
+</audio>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<!-- NAVBAR -->
+<header class="site-nav">
+    <a href="index.html" class="brand" aria-label="TobaVerse Home">
+        <img
+            src="assets/images/branding/logo.png"
+            alt="TobaVerse Logo">
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="culture.html">Culture</a>
+        <a href="culinary.html">Culinary</a>
+        <a href="journey.html">Journey</a>
+        <a href="events.html">Events</a>
+        <a href="map.html" class="active">Map</a>
+    </nav>
+    <div class="nav-actions">
+        <button id="musicToggle" class="music-btn" aria-label="Toggle Background Music" type="button">
+            🎵
+        </button>
+        <a class="nav-cta" href="journey.html">
+            Plan My Trip
+        </a>
+    </div>
+    <button
+        class="nav-toggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false">
+        <span></span>
+    </button>
+</header>
+
+<main id="main">
+
+  <!-- 1. HERO -->
+  <section class="map-hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="map-hero-inner">
+      <span class="eyebrow reveal fade-up">Find Your Way Around</span>
+      <h1 class="reveal fade-up" data-delay="60">Explore Lake Toba with an Interactive Map</h1>
+      <p class="lede reveal fade-up" data-delay="120">
+        Discover destinations, ports, viewpoints, airports, museums, villages,
+        and cultural attractions around Lake Toba.
+      </p>
+      <div class="hero-actions reveal fade-up" data-delay="180">
+        <a href="#map" class="btn btn-primary">Explore Map</a>
+      </div>
+    </div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <span>Scroll</span>
+      <span class="line"></span>
+    </div>
+  </section>
+
+  <!-- 2. INTERACTIVE MAP -->
+  <section class="m-section" id="map">
+    <div class="container">
+      <div class="section-head reveal fade-up">
+        <div>
+          <span class="eyebrow">The Caldera, Illustrated</span>
+          <h2 class="section-title">Tap a Marker to Explore</h2>
+        </div>
+        <p class="section-lede">An illustrated map of Lake Toba — click any marker for photos, travel tips, and directions.</p>
+      </div>
+      <div class="map-filters" id="mapFilters" role="group" aria-label="Filter map markers by category"></div>
+      <div class="map-stage">
+        <!-- Illustrated SVG map -->
+        <div class="map-illustration-wrap reveal fade-up">
+          <span class="float-deco" style="width:90px;height:90px;top:6%;left:8%;background:var(--emerald);" aria-hidden="true"></span>
+          <span class="float-deco" style="width:60px;height:60px;bottom:10%;right:10%;background:var(--clay);animation-delay:1.4s;" aria-hidden="true"></span>
+          <svg viewBox="0 0 800 600" role="img" aria-label="Illustrated interactive map of Lake Toba with clickable destination markers">
+            <!-- Contour rings (decorative caldera texture) -->
+            <g aria-hidden="true">
+              <circle class="map-contour-ring" cx="400" cy="320" r="240"/>
+              <circle class="map-contour-ring" cx="400" cy="320" r="200"/>
+              <circle class="map-contour-ring" cx="400" cy="320" r="160"/>
+            </g>
+            <!-- Lake Toba outline (stylized) -->
+            <path class="map-lake" d="M120,180 C90,260 100,360 160,440 C220,520 340,560 430,540
+              C520,520 600,470 640,400 C680,330 660,240 600,180
+              C560,140 500,150 460,120 C420,90 380,80 340,100
+              C300,120 260,110 220,130 C180,150 150,140 120,180 Z"/>
+            <!-- Samosir Island (stylized) -->
+            <path class="map-island" d="M330,260 C300,290 300,340 330,380 C360,420 420,430 460,400
+              C500,370 500,320 470,290 C440,260 380,240 330,260 Z"/>
+            <!-- Sipiso-piso waterfall notch (northern caldera rim) -->
+            <path class="map-contour-ring" d="M300,60 C320,80 340,90 360,70" aria-hidden="true"/>
+            <!-- Markers are injected here by map.js -->
+            <g id="markersLayer"></g>
+            </svg>
+            <div class="map-legend">
+            <span><span class="dot"></span> Destination marker — click for details</span>
+          </div>
+        </div>
+            <!-- Info card -->
+          <div class="map-info-card" id="mapInfoCard">
+            <div class="mi-empty">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              <p>Select a marker on the map to see photos, travel tips, and directions for that destination.</p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. DESTINATION CARDS -->
+  <section class="m-section tint">
+    <div class="container">
+      <div class="section-head reveal fade-up">
+        <div>
+          <span class="eyebrow">All Destinations</span>
+          <h2 class="section-title">Every Stop on the Map</h2>
+        </div>
+        <p class="section-lede">The same ten destinations, laid out as cards — filtering above applies here too.</p>
+      </div>
+      <div class="dest-cards-grid" id="destCardsGrid" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- 4. TRANSPORTATION ROUTES -->
+  <section class="m-section">
+    <div class="container">
+      <div class="section-head reveal fade-up">
+        <div>
+          <span class="eyebrow">A Typical Route</span>
+          <h2 class="section-title">Getting From the Airport to the Highlands</h2>
+        </div>
+      </div>
+      <div class="route-flow">
+        <div class="route-node reveal fade-up">
+          <span class="node-icon" aria-hidden="true">✈️</span>
+          <div class="node-body">
+            <h4>Silangit Airport</h4>
+            <p>Arrival point for most visitors flying in from Jakarta or Medan.</p>
+          </div>
+        </div>
+        <div class="route-connector">
+          <span class="duration-tag">≈45 min</span>
+          <span class="via">by car</span>
+        </div>
+        <div class="route-node reveal fade-up" data-delay="80">
+          <span class="node-icon" aria-hidden="true">🏘️</span>
+          <div class="node-body">
+            <h4>Balige</h4>
+            <p>A lakeside stop for Batak cultural history before continuing east.</p>
+          </div>
+        </div>
+        <div class="route-connector">
+          <span class="duration-tag">≈1 hour</span>
+          <span class="via">by car</span>
+        </div>
+        <div class="route-node reveal fade-up" data-delay="160">
+          <span class="node-icon" aria-hidden="true">⚓</span>
+          <div class="node-body">
+            <h4>Ajibata</h4>
+            <p>Main ferry harbor on the eastern shore, gateway to Samosir Island.</p>
+          </div>
+        </div>
+        <div class="route-connector">
+          <span class="duration-tag">≈40–50 min</span>
+          <span class="via">by passenger ferry</span>
+        </div>
+        <div class="route-node reveal fade-up" data-delay="240">
+          <span class="node-icon" aria-hidden="true">🛳️</span>
+          <div class="node-body">
+            <h4>Tomok</h4>
+            <p>Ferry landing point and first stop on Samosir Island.</p>
+          </div>
+        </div>
+        <div class="route-connector">
+          <span class="duration-tag">≈20–30 min</span>
+          <span class="via">by car or motorcycle</span>
+        </div>
+        <div class="route-node reveal fade-up" data-delay="320">
+          <span class="node-icon" aria-hidden="true">🏝️</span>
+          <div class="node-body">
+            <h4>Samosir</h4>
+            <p>The island at the heart of the caldera, home to Ambarita and Pangururan.</p>
+          </div>
+        </div>
+        <div class="route-connector">
+          <span class="duration-tag">≈45 min</span>
+          <span class="via">by car or motorcycle</span>
+        </div>
+        <div class="route-node reveal fade-up" data-delay="400">
+          <span class="node-icon" aria-hidden="true">⛰️</span>
+          <div class="node-body">
+            <h4>Bukit Holbung</h4>
+            <p>The journey's reward — a grass-ridge viewpoint over the lake.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. DISTANCE & TRAVEL TIME -->
+  <section class="m-section tint">
+    <div class="container">
+      <div class="section-head reveal fade-up">
+        <div>
+          <span class="eyebrow">Plan the Legs</span>
+          <h2 class="section-title">Distance &amp; Travel Time</h2>
+        </div>
+        <p class="section-lede">Approximate figures for common legs of the journey — actual time varies with traffic and weather.</p>
+      </div>
+      <div class="distance-card reveal fade-up">
+        <table class="distance-table">
+          <thead>
+            <tr>
+              <th scope="col">From</th>
+              <th scope="col">To</th>
+              <th scope="col">Distance</th>
+              <th scope="col">Travel Time</th>
+              <th scope="col">Transport</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="route-from">Silangit</td>
+              <td>Balige</td>
+              <td>≈25 km</td>
+              <td>≈45 minutes</td>
+              <td>Car</td>
+            </tr>
+            <tr>
+              <td class="route-from">Balige</td>
+              <td>Ajibata</td>
+              <td>≈45 km</td>
+              <td>≈1 hour</td>
+              <td>Car</td>
+            </tr>
+            <tr>
+              <td class="route-from">Ajibata</td>
+              <td>Tomok</td>
+              <td>≈7 km (by water)</td>
+              <td>≈40–50 minutes</td>
+              <td>Passenger &amp; vehicle ferry</td>
+            </tr>
+            <tr>
+              <td class="route-from">Tomok</td>
+              <td>Pangururan</td>
+              <td>≈40 km</td>
+              <td>≈1–1.5 hours</td>
+              <td>Car or motorcycle</td>
+            </tr>
+            <tr>
+              <td class="route-from">Parapat</td>
+              <td>Sipiso-piso</td>
+              <td>≈55–60 km</td>
+              <td>≈1.5–2 hours</td>
+              <td>Car</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISITOR INFORMATION -->
+  <section class="m-section">
+    <div class="container">
+      <div class="section-head reveal fade-up">
+        <div>
+          <span class="eyebrow">Good to Know</span>
+          <h2 class="section-title">Visitor Information</h2>
+        </div>
+      </div>
+      <div class="info-grid">
+        <div class="info-card reveal fade-up">
+          <span class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </span>
+          <h4>Tourist Information Center</h4>
+          <p>Available in main towns like Parapat and Balige — a good first stop for local maps and guide contacts.</p>
+        </div>
+        <div class="info-card reveal fade-up" data-delay="60">
+          <span class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          </span>
+          <h4>Parking</h4>
+          <p>Most viewpoints and villages have informal parking areas, often with a small attendant fee.</p>
+        </div>
+        <div class="info-card reveal fade-up" data-delay="120">
+          <span class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/></svg>
+          </span>
+          <h4>ATM</h4>
+          <p>Found in larger towns such as Parapat and Balige — remote villages are often cash-only with no ATM nearby.</p>
+        </div>
+        <div class="info-card reveal fade-up" data-delay="180">
+          <span class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v8M8 12h8"/><rect x="3" y="4" width="18" height="16" rx="2"/></svg>
+          </span>
+          <h4>Hospital</h4>
+          <p>Regional hospitals are located in Balige and other main towns; smaller clinics serve outlying villages.</p>
+        </div>
+        <div class="info-card reveal fade-up">
+          <span class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </span>
+          <h4>Police</h4>
+          <p>Local police posts are present in every main town along the lake's ring road.</p>
+        </div>
+        <div class="info-card reveal fade-up" data-delay="60">
+          <span class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h11V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2z"/><path d="M15 9h2l3 3v5a1 1 0 0 1-1 1h-1"/><circle cx="7.5" cy="20" r="1.5"/><circle cx="16.5" cy="20" r="1.5"/></svg>
+          </span>
+          <h4>Gas Station</h4>
+          <p>Available along the main ring road; fill up before heading to more remote viewpoints or villages.</p>
+        </div>
+        <div class="info-card reveal fade-up" data-delay="120">
+          <span class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8l4-4h8l4 4v12H4z"/><path d="M9 4v4h6V4"/></svg>
+          </span>
+          <h4>Public Restroom</h4>
+          <p>Usually available at ferry terminals, major viewpoints, and larger villages — bringing tissue is wise.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFETY TIPS -->
+  <section class="m-section tint">
+    <div class="container">
+      <div class="section-head reveal fade-up">
+        <div>
+          <span class="eyebrow">Travel Smart</span>
+          <h2 class="section-title">Safety Tips</h2>
+        </div>
+      </div>
+
+      <div class="safety-grid">
+        <div class="safety-card reveal fade-up">
+          <span class="safety-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 19l2-6 3 2 2-5 3 7 2-3 2 5"/><path d="M3 19h18"/></svg>
+          </span>
+          <h4>Wear comfortable shoes.</h4>
+        </div>
+        <div class="safety-card reveal fade-up" data-delay="60">
+          <span class="safety-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="12" rx="2"/><circle cx="12" cy="13" r="2.5"/></svg>
+          </span>
+          <h4>Carry cash.</h4>
+        </div>
+        <div class="safety-card reveal fade-up" data-delay="120">
+          <span class="safety-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 16H3z"/></svg>
+          </span>
+          <h4>Respect local customs.</h4>
+        </div>
+        <div class="safety-card reveal fade-up" data-delay="180">
+          <span class="safety-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19a4.5 4.5 0 0 0 0-9h-1.26A6 6 0 1 0 6 15.5"/></svg>
+          </span>
+          <h4>Weather changes quickly.</h4>
+        </div>
+        <div class="safety-card reveal fade-up" data-delay="240">
+          <span class="safety-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17h18M4 17V10a2 2 0 0 1 2-2h1l2-3h6l2 3h1a2 2 0 0 1 2 2v7"/></svg>
+          </span>
+          <h4>Book ferry tickets early.</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CTA -->
+  <section class="cta-band">
+    <div class="cta-inner map-cta reveal fade-up">
+      <div>
+        <h2>Ready to Explore Lake Toba?</h2>
+        <p>Use the map above to build your route, then start planning the rest of your trip.</p>
+      </div>
+      <a href="journey.html" class="btn btn-primary">Start Planning →</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <!-- Brand -->
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">
+                    <img
+                        src="assets/images/branding/logo-white.png"
+                        alt="TobaVerse Logo">
+                </a>
+                <p>
+                    TobaVerse is your premium digital companion for discovering breathtaking
+                    landscapes, authentic Batak culture, local cuisine, and unforgettable
+                    journeys across Lake Toba.
+                </p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="#" aria-label="TikTok">
+                        <i class="bi bi-tiktok"></i>
+                    </a>
+                    <a href="#" aria-label="YouTube">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- Explore -->
+            <div class="footer-column">
+                <h3>Explore</h3>
+                <ul>
+                    <li>
+                        <a href="explore.html">
+                            Destinations
+                        </a>
+                    </li>
+                    <li>
+                        <a href="culture.html">
+                            Culture
+                        </a>
+                    </li>
+                    <li>
+                        <a href="culinary.html">
+                            Culinary
+                        </a>
+                    </li>
+                    <li>
+                        <a href="events.html">
+                            Events
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Travel -->
+            <div class="footer-column">
+                <h3>Travel</h3>
+                <ul>
+                    <li>
+                        <a href="journey.html">
+                            Journey Planner
+                        </a>
+                    </li>
+                    <li>
+                        <a href="map.html">
+                            Interactive Map
+                        </a>
+                    </li>
+                    <li>
+                        <a href="explore.html">
+                            Travel Guide
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Contact -->
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <span>Lake Toba, North Sumatra</span>
+                    </li>
+                    <li>
+                        <i class="bi bi-envelope-fill"></i>
+                        <span>hello@tobaverse.com</span>
+                    </li>
+                    <li>
+                        <i class="bi bi-telephone-fill"></i>
+                        <span>+62 812 3456 7890</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                © 2026 TobaVerse. All Rights Reserved.
+            </p>
+            <div class="footer-bottom-links">
+                <a href="#">
+                    Privacy Policy
+                </a>
+                <a href="#">
+                    Terms
+                </a>
+                <a href="#">
+                    Sitemap
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- CHATBOT WIDGET -->
+
+<div class="chat-widget">
+
+    <button id="chatToggleBtn" class="chat-btn" aria-label="Buka TobaVerse Assistant">
+
+        <i class="bi bi-chat-dots-fill"></i>
+
+    </button>
+
+    <div id="chatBox" class="chat-box">
+
+        <div class="chat-header">
+
+            <div>
+
+                <h4>TobaVerse Assistant</h4>
+
+                <span>Tanya apa saja soal Danau Toba</span>
+
+            </div>
+
+            <button id="chatCloseBtn" class="chat-close-btn" aria-label="Tutup chat">
+
+                &times;
+
+            </button>
+
+        </div>
+
+        <div id="chatMessages" class="chat-messages">
+
+             <div class="chat-msg bot">Horas! <br />Saya Ompung Bot, siap membantu kamu menemukan destinasi wisata, kuliner, penginapan, atau transportasi di sekitar Danau Toba. Mau tanya apa?</div>
+            <div id="chatQuickActions" class="chat-quick-actions"></div>
+        </div>
+        <div class="chat-input-area">
+
+            <input
+
+                type="text"
+
+                id="chatInput"
+
+                placeholder="Tulis pertanyaanmu..."
+
+                autocomplete="off">
+
+            <button id="chatSendBtn" class="chat-send-btn" aria-label="Kirim pesan">
+
+                <i class="bi bi-send-fill"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<script src="js/map.js"></script>
+<script src="js/script.js"></script>
+<script src="js/music.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

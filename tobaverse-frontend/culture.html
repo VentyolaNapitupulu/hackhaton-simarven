@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Batak Culture — TobaVerse</title>
+<meta name="description" content="Discover the traditions, philosophy, arts, architecture, and living heritage of the Batak people around Lake Toba." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/culture.css" />
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="css/chatbot.css">
+</head>
+
+<body>
+<audio id="bgMusic" loop preload="auto">
+    <source src="assets/audio/Uningan.mp3" type="audio/mpeg">
+</audio>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="site-nav">
+    <!-- Logo -->
+    <a href="index.html" class="brand" aria-label="TobaVerse Home">
+        <img
+            src="assets/images/branding/logo.png"
+            alt="TobaVerse Logo">
+    </a>
+    <!-- Navigation -->
+    <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">
+            Home
+        </a>
+        <a href="explore.html">
+            Explore
+        </a>
+        <a href="culture.html" class="active">
+            Culture
+        </a>
+        <a href="culinary.html">
+            Culinary
+        </a>
+        <a href="journey.html">
+            Journey
+        </a>
+        <a href="events.html">
+            Events
+        </a>
+        <a href="map.html">
+            Map
+        </a>
+    </nav>
+    <div class="nav-actions">
+        <button id="musicToggle" class="music-btn" aria-label="Toggle Background Music" type="button">
+            🎵
+        </button>
+        <a class="nav-cta" href="journey.html">
+            Plan My Trip
+        </a>
+    </div>
+    <!-- Mobile -->
+    <button
+        class="nav-toggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false">
+        <span></span>
+    </button>
+</header>
+
+<main id="main">
+
+  <!-- HERO ================================================================= -->
+  <section class="culture-hero">
+    <div class="culture-hero-inner">
+      <span class="eyebrow">North Sumatra · Living Heritage</span>
+      <h1>Batak Culture</h1>
+      <p class="lede">Discover the traditions, philosophy, arts, architecture, and living heritage of the Batak people.</p>
+      <div class="hero-actions">
+        <a href="#categories" class="btn btn-primary">Explore Heritage</a>
+        <a href="#philosophy" class="btn btn-ghost">Dalihan Na Tolu</a>
+      </div>
+    </div>
+    <div class="scroll-indicator on-dark" aria-hidden="true">
+      <span>Scroll</span>
+      <span class="line"></span>
+    </div>
+  </section>
+
+  <!-- 1. CULTURAL CATEGORIES ================================================ -->
+  <section class="c-section" id="categories">
+    <div class="container">
+      <div class="section-head reveal fade-up">
+        <div>
+          <span class="eyebrow">Six Threads</span>
+          <h2 class="section-title">Every facet of Batak heritage</h2>
+        </div>
+        <p class="section-lede">From carved houses to woven cloth, each of these threads runs through nearly every Batak ceremony.</p>
+      </div>
+      <div class="category-grid">
+        <a href="#houses" class="category-card reveal fade-up">
+          <img class="cat-bg" src="assets/images/culture/heritage/batak-houses.jpg" alt="Traditional Batak house architecture" loading="lazy" width="400" height="300" />
+          <div class="cat-body">
+            <h3>Batak Houses</h3>
+            <p>Rumah Bolon and the jabu system — architecture built to encode family order.</p>
+            <span class="goto-btn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
+        <a href="#" class="category-card reveal fade-up" data-delay="60">
+          <img class="cat-bg" src="assets/images/culture/heritage/traditional-music.jpeg" alt="Traditional Batak gondang music ensemble" loading="lazy" width="400" height="300" />
+          <div class="cat-body">
+            <h3>Traditional Music</h3>
+            <p>Gondang drum ensembles and the sarune, played at every major ceremony.</p>
+            <span class="goto-btn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
+        <a href="#" class="category-card reveal fade-up" data-delay="120">
+          <img class="cat-bg" src="assets/images/culture/heritage/traditional-dance.jpg" alt="Traditional Batak Tor-Tor dance" loading="lazy" width="400" height="300" />
+          <div class="cat-body">
+            <h3>Traditional Dance</h3>
+            <p>Tor-Tor — symbolic hand movements performed in step with gondang rhythm.</p>
+            <span class="goto-btn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
+        <a href="#ulos" class="category-card reveal fade-up">
+          <img class="cat-bg" src="assets/images/culture/heritage/ulos.jpg" alt="Woven Batak ulos textile" loading="lazy" width="400" height="300" />
+          <div class="cat-body">
+            <h3>Ulos</h3>
+            <p>Hand-woven cloth given at every rite of passage, each pattern carrying its own meaning.</p>
+            <span class="goto-btn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
+        <a href="#philosophy" class="category-card reveal fade-up" data-delay="60">
+          <img class="cat-bg" src="assets/images/culture/heritage/dalihan-na-tolu.png" alt="Dalihan Na Tolu kinship ceremony" loading="lazy" width="400" height="300" />
+          <div class="cat-body">
+            <h3>Dalihan Na Tolu</h3>
+            <p>The three-legged kinship order that structures every Batak ceremony and social role.</p>
+            <span class="goto-btn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
+        <a href="#" class="category-card reveal fade-up" data-delay="120">
+          <img class="cat-bg" src="assets/images/culture/heritage/traditional-ceremony.jpg" alt="Traditional Batak ceremony" loading="lazy" width="400" height="300" />
+          <div class="cat-body">
+            <h3>Traditional Ceremony</h3>
+            <p>Weddings, mourning, and blessings — all structured by the Dalihan Na Tolu order.</p>
+            <span class="goto-btn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. TIMELINE ============================================================ -->
+  <section class="c-section tint" id="timeline">
+    <div class="container">
+      <div class="section-head reveal fade-up">
+        <div>
+          <span class="eyebrow">Four Chapters</span>
+          <h2 class="section-title">A Batak history timeline</h2>
+        </div>
+        <p class="section-lede">Select an era to read what defined it.</p>
+      </div>
+      <div class="timeline-wrap reveal fade-up">
+        <div class="timeline-track" id="timelineTrack">
+          <span class="fill-line" id="timelineFill"></span>
+        </div>
+        <div class="era-panel" id="eraPanel"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CLAN SECTION ========================================================= -->
+  <section class="c-section" id="clans">
+    <div class="container">
+      <div class="section-head reveal fade-up">
+        <div>
+          <span class="eyebrow">Marga</span>
+          <h2 class="section-title">Six Batak clans</h2>
+        </div>
+        <p class="section-lede">Tap any clan to open its history — every Batak marga traces back to one shared ancestor, Si Raja Batak.</p>
+      </div>
+      <div class="clan-grid" id="clanGrid"></div>
+    </div>
+  </section>
+
+  <!-- 4. TRADITIONAL HOUSES =================================================== -->
+  <section class="c-section tint" id="houses">
+    <div class="container">
+      <div class="section-head reveal fade-up">
+        <div>
+          <span class="eyebrow">Architecture</span>
+          <h2 class="section-title">Houses built to hold an order</h2>
+        </div>
+        <p class="section-lede">Two structures, one shared idea — architecture built to hold a family's order.</p>
+      </div>
+      <div class="house-grid" id="houseGrid"></div>
+    </div>
+  </section>
+
+  <!-- 5. ULOS GALLERY ========================================================== -->
+  <section class="c-section" id="ulos">
+    <div class="container">
+      <div class="section-head reveal fade-up">
+        <div>
+          <span class="eyebrow">Woven Meaning</span>
+          <h2 class="section-title">The Ulos Gallery</h2>
+        </div>
+        <p class="section-lede">Hover or focus a photo to read what it's traditionally given for.</p>
+      </div>
+      <div class="ulos-gallery" id="ulosGallery"></div>
+    </div>
+  </section>
+
+  <!-- 6. PHILOSOPHY ============================================================ -->
+  <section class="c-section tint" id="philosophy">
+    <div class="container">
+      <div class="section-head reveal fade-up">
+        <div>
+          <span class="eyebrow">Dalihan Na Tolu</span>
+          <h2 class="section-title">The three-legged hearth</h2>
+        </div>
+        <p class="section-lede">Every Batak ceremony runs on this triangle of kinship roles. Click a corner to read what it means.</p>
+      </div>
+      <div class="philosophy-wrap">
+        <div class="dnt-diagram reveal slide-left">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Dalihan Na Tolu triangle diagram">
+            <circle class="dnt-ring" cx="100" cy="100" r="86"/>
+            <line x1="100" y1="34" x2="34" y2="156" stroke="rgba(11,46,61,0.18)" stroke-width="1.5"/>
+            <line x1="100" y1="34" x2="166" y2="156" stroke="rgba(11,46,61,0.18)" stroke-width="1.5"/>
+            <line x1="34" y1="156" x2="166" y2="156" stroke="rgba(11,46,61,0.18)" stroke-width="1.5"/>
+
+            <g class="dnt-node" tabindex="0" role="button" aria-label="Hula-hula" data-role="hula-hula" transform="translate(100,34)">
+              <circle class="base" r="26" fill="#1D6F8C"/>
+              <text y="3">Hula-hula</text>
+            </g>
+            <g class="dnt-node" tabindex="0" role="button" aria-label="Dongan Tubu" data-role="dongan-tubu" transform="translate(34,156)">
+              <circle class="base" r="26" fill="#1F7A5C"/>
+              <text y="3">Dongan Tubu</text>
+            </g>
+            <g class="dnt-node" tabindex="0" role="button" aria-label="Boru" data-role="boru" transform="translate(166,156)">
+              <circle class="base" r="26" fill="#9C3B3B"/>
+              <text y="3">Boru</text>
+            </g>
+          </svg>
+        </div>
+        <div class="philosophy-detail reveal slide-right">
+          <div class="role-card show" data-role="hula-hula">
+            <span class="role-tag">Wife-givers</span>
+            <h3>Hula-hula</h3>
+            <p>The family that a man's wife comes from. In Dalihan Na Tolu, hula-hula are treated with the highest respect and are seated and served first at every ceremony — the source of life and blessing within the kinship system.</p>
+          </div>
+          <div class="role-card" data-role="dongan-tubu">
+            <span class="role-tag">Same-clan kin</span>
+            <h3>Dongan Tubu</h3>
+            <p>Male members who share the same marga — brothers in the widest sense. This leg of the triangle represents solidarity and equality: dongan tubu stand together and support one another as one lineage.</p>
+          </div>
+          <div class="role-card" data-role="boru">
+            <span class="role-tag">Wife-receivers</span>
+            <h3>Boru</h3>
+            <p>The family that receives a daughter in marriage. Boru take on a role of service and support at ceremonies — organizing, serving, and carrying out the practical work that keeps an event running.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <!-- Brand -->
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="footer-logo">
+
+                    <img
+                        src="assets/images/branding/logo-white.png"
+                        alt="TobaVerse Logo">
+
+                </a>
+
+                <p>
+                    TobaVerse is your premium digital companion for discovering breathtaking
+                    landscapes, authentic Batak culture, local cuisine, and unforgettable
+                    journeys across Lake Toba.
+                </p>
+
+                <div class="footer-social">
+
+                    <a href="#" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#" aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a href="#" aria-label="TikTok">
+                        <i class="bi bi-tiktok"></i>
+                    </a>
+
+                    <a href="#" aria-label="YouTube">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Explore -->
+
+            <div class="footer-column">
+
+                <h3>Explore</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="explore.html">
+                            Destinations
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="culture.html">
+                            Culture
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="culinary.html">
+                            Culinary
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="events.html">
+                            Events
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Travel -->
+
+            <div class="footer-column">
+
+                <h3>Travel</h3>
+
+                <ul>
+
+                    <li>
+                        <a href="journey.html">
+                            Journey Planner
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="map.html">
+                            Interactive Map
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="explore.html">
+                            Travel Guide
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Contact -->
+
+            <div class="footer-column">
+
+                <h3>Contact</h3>
+
+                <ul class="footer-contact">
+
+                    <li>
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <span>Lake Toba, North Sumatra</span>
+                    </li>
+
+                    <li>
+                        <i class="bi bi-envelope-fill"></i>
+                        <span>hello@tobaverse.com</span>
+                    </li>
+
+                    <li>
+                        <i class="bi bi-telephone-fill"></i>
+                        <span>+62 812 3456 7890</span>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 TobaVerse. All Rights Reserved.
+            </p>
+
+            <div class="footer-bottom-links">
+
+                <a href="#">
+                    Privacy Policy
+                </a>
+
+                <a href="#">
+                    Terms
+                </a>
+
+                <a href="#">
+                    Sitemap
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- CHATBOT WIDGET -->
+
+<div class="chat-widget">
+
+    <button id="chatToggleBtn" class="chat-btn" aria-label="Buka TobaVerse Assistant">
+
+        <i class="bi bi-chat-dots-fill"></i>
+
+    </button>
+
+    <div id="chatBox" class="chat-box">
+
+        <div class="chat-header">
+
+            <div>
+
+                <h4>TobaVerse Assistant</h4>
+
+                <span>Tanya apa saja soal Danau Toba</span>
+
+            </div>
+
+            <button id="chatCloseBtn" class="chat-close-btn" aria-label="Tutup chat">
+
+                &times;
+
+            </button>
+
+        </div>
+
+        <div id="chatMessages" class="chat-messages">
+
+             <div class="chat-msg bot">Horas! <br />Saya Ompung Bot, siap membantu kamu menemukan destinasi wisata, kuliner, penginapan, atau transportasi di sekitar Danau Toba. Mau tanya apa?</div>
+            <div id="chatQuickActions" class="chat-quick-actions"></div>
+        </div>
+        <div class="chat-input-area">
+
+            <input
+
+                type="text"
+
+                id="chatInput"
+
+                placeholder="Tulis pertanyaanmu..."
+
+                autocomplete="off">
+
+            <button id="chatSendBtn" class="chat-send-btn" aria-label="Kirim pesan">
+
+                <i class="bi bi-send-fill"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/culture.js"></script>
+<script src="js/script.js"></script>
+<script src="js/music.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

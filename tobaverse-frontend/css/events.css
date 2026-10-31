@@ -1,0 +1,270 @@
+/* ==========================================================================
+   TobaVerse — Events Page Stylesheet
+   Reuses tokens from style.css only (colors, radius, shadow, fonts, .btn,
+   .reveal, .cta-band/.cta-inner, nav, footer). No new colors are introduced;
+   the site's existing navy/emerald/clay/paper palette is used throughout,
+   matching the same hue family requested for this page.
+   ========================================================================== */
+
+/* ---- SECTION 1: Hero ------------------------------------------------------ */
+.events-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  color: var(--paper);
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(7,20,27,0.4) 0%, rgba(7,20,27,0.6) 55%, rgba(7,20,27,0.92) 100%),
+    linear-gradient(120deg, rgba(31,122,92,0.28), rgba(11,46,61,0.2)),
+    url("../assets/images/hero/event-hero.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.events-hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 180px clamp(20px, 5vw, 48px) 96px;
+}
+.events-hero .eyebrow { color: var(--clay-light); }
+.events-hero h1 {
+  color: var(--paper);
+  font-size: clamp(2.3rem, 5.4vw, 3.9rem);
+  font-weight: 800;
+  margin: 16px 0 18px;
+  max-width: 760px;
+}
+.events-hero p.lede { max-width: 600px; color: rgba(251,249,244,0.82); font-size: 1.02rem; }
+.events-hero .hero-actions { margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* ---- Section shell shared by this page ------------------------------------ */
+.e-section { padding: 108px 0; }
+.e-section.tint { background: var(--paper-dim); }
+
+/* ---- SECTION 2: Featured Event --------------------------------------------- */
+.featured-event {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  transition: box-shadow .4s ease;
+}
+.featured-event:hover { box-shadow: var(--shadow-lift); }
+.featured-event .fe-media {
+  position: relative;
+  overflow: hidden;
+  min-height: 360px;
+}
+.featured-event .fe-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s ease;
+}
+.featured-event:hover .fe-media img { transform: scale(1.06); }
+.featured-event .fe-media .fe-badge {
+  position: absolute;
+  top: 22px; left: 22px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: var(--clay);
+  color: var(--navy);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.featured-event .fe-body {
+  padding: clamp(32px, 4vw, 48px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+.featured-event .fe-body h3 { font-size: clamp(1.5rem, 2.4vw, 1.9rem); color: var(--navy); }
+.featured-event .fe-meta { display: flex; gap: 20px; flex-wrap: wrap; }
+.featured-event .fe-meta .meta { display: flex; flex-direction: column; gap: 3px; }
+.featured-event .fe-meta .meta span.label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--emerald); }
+.featured-event .fe-meta .meta span.value { font-weight: 600; color: var(--navy); font-size: 0.92rem; }
+.featured-event .fe-body p.desc { color: #4B6067; font-size: 0.96rem; }
+.featured-event .fe-body .btn { align-self: flex-start; margin-top: 6px; }
+
+/* ---- SECTION 3: Upcoming Events -------------------------------------------- */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+}
+.event-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease;
+  display: flex;
+  flex-direction: column;
+}
+.event-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lift); }
+.event-card .thumb {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--paper-dim);
+}
+.event-card .thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s ease;
+}
+.event-card:hover .thumb img { transform: scale(1.08); }
+.event-card .thumb .date-badge {
+  position: absolute;
+  top: 16px; right: 16px;
+  padding: 6px 13px;
+  border-radius: 999px;
+  background: rgba(251,249,244,0.92);
+  color: var(--navy);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  z-index: 2;
+}
+.event-card .body {
+  padding: 22px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.event-card .loc {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--lake);
+  text-transform: uppercase;
+}
+.event-card h3 { font-size: 1.12rem; }
+.event-card p.desc { color: #4B6067; font-size: 0.9rem; flex: 1; }
+
+/* ---- SECTION 4: Cultural Experiences ---------------------------------------- */
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+}
+.experience-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease;
+}
+.experience-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lift); }
+.experience-card .thumb {
+  position: relative;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  background: var(--paper-dim);
+}
+.experience-card .thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s ease;
+}
+.experience-card:hover .thumb img { transform: scale(1.1); }
+.experience-card .body { padding: 20px 20px 22px; }
+.experience-card h4 { font-size: 1.02rem; color: var(--navy); }
+.experience-card p { color: #4B6067; font-size: 0.88rem; margin-top: 6px; }
+
+/* ---- SECTION 5: Annual Event Timeline --------------------------------------- */
+.timeline-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 6px 4px 20px;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+.timeline-scroll::-webkit-scrollbar { height: 6px; }
+.timeline-scroll::-webkit-scrollbar-thumb { background: rgba(11,46,61,0.18); border-radius: 999px; }
+.month-card {
+  scroll-snap-align: start;
+  flex: 0 0 200px;
+  border-radius: var(--radius-md);
+  background: #fff;
+  border: 1px solid rgba(11,46,61,0.07);
+  box-shadow: var(--shadow-soft);
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.month-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lift); }
+.month-card.has-event { border-color: var(--clay); background: linear-gradient(160deg, #fff 0%, var(--paper-dim) 120%); }
+.month-card .month-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--emerald);
+}
+.month-card h4 { font-size: 1rem; color: var(--navy); min-height: 24px; }
+.month-card .event-date {
+  align-self: flex-start;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: var(--paper-dim);
+  color: var(--navy);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+.month-card.has-event .event-date { background: var(--clay); color: var(--navy); }
+
+/* ---- SECTION 6: Event Gallery (masonry-style grid) --------------------------- */
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+}
+
+.gallery-item{
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:var(--shadow-soft);
+    background:#fff;
+    aspect-ratio:4/3;
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.08);
+}
+
+/* ---- Responsive ------------------------------------------------------------ */
+@media (max-width: 1080px) {
+  .featured-event { grid-template-columns: 1fr; }
+  .featured-event .fe-media { min-height: 280px; }
+  .events-grid { grid-template-columns: repeat(2, 1fr); }
+  .experience-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
+}
+@media (max-width: 640px) {
+  .events-grid { grid-template-columns: 1fr; }
+  .experience-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+  .events-hero-inner { padding-top: 140px; }
+  .month-card { flex-basis: 168px; }
+}
