@@ -2,7 +2,7 @@
 // TOBAVERSE CHATBOT WIDGET
 // ============================================
 
-const BACKEND_URL = "http://localhost:5000/api/chat";
+const BACKEND_URL = "https://tobaverse-backend-6kf9.onrender.com/api/chat";
 
 // Riwayat percakapan disimpan di memori browser (hilang saat refresh -- ini
 // wajar untuk MVP, tidak perlu database percakapan permanen untuk sekarang)

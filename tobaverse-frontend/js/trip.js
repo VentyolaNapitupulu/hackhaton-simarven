@@ -2,8 +2,8 @@
 // TOBAVERSE AI TRIP -- percakapan bebas dengan ekstraksi slot otomatis
 // ============================================
 
-const TRIP_CHAT_URL = "http://localhost:5000/api/trip-chat";
-const TRIP_PLAN_URL = "http://localhost:5000/api/trip-plan";
+const TRIP_CHAT_URL = "https://tobaverse-backend-6kf9.onrender.com/api/trip-chat";
+const TRIP_PLAN_URL = "https://tobaverse-backend-6kf9.onrender.com/api/trip-plan";
 
 // Metadata field cuma untuk tampilan tracker -- BUKAN lagi urutan wajib
 const FIELD_META = [
