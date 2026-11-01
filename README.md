@@ -35,9 +35,8 @@ Dataset dikompilasi dari **Pusat Data Institut Teknologi Del** melalui skema per
   * Sheet `resto-hotel-v2` dan `wisata-v2` (total 22.302 baris ulasan individual) **sengaja tidak digunakan pada tahap ini**: 41–55% entri tidak memiliki ulasan bermakna dan skalanya terlalu granular untuk *Knowledge Base RAG MVP* — dicadangkan untuk pengkayaan fitur analisis sentimen di *roadmap* lanjutan.
 
 ## 4. Tautan & Aset Pendukung
-- **Link Video Demonstrasi (Wajib):** https://youtu.be/Pf7O47uuHWo?si=vaIWOTijPM8eT0ty
-- **Link Pitch Deck / Proposal (Wajib):** https://drive.google.com/file/d/1HtjHYc1KdIf3b9PnSfxehbBHRnT1EEyC/view?usp=sharing
-
+- **Link Video Demonstrasi (Wajib):** https://youtu.be/PAW3vYfXZxw?si=a79y7N-J13uYComd
+- **Link Pitch Deck / Proposal (Wajib):** https://drive.google.com/file/d/1jGoG3wC3y7PosxCbXpGdjp2BaOARuwQ7/view?usp=sharing
 ## 5. Struktur Repository
 
 ```text
@@ -116,9 +115,8 @@ GROQ_API_KEY=isi_dengan_api_key_groq_anda
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/VentyolaNapitupulu/tobaverse-ai.git
-  # Masuk ke folder backend 
-cd tobaverse-ai/tobaverse-backend
+git clone [https://github.com/VentyolaNapitupulu/hackhaton-simarven.git](https://github.com/VentyolaNapitupulu/hackhaton-simarven.git)
+cd hackhaton-simarven/tobaverse-backend
 
 # 2. Buat virtual environment
 python -m venv venv
