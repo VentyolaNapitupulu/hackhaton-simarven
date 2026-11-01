@@ -22,9 +22,6 @@ venv/
 # Evaluation Results
 evaluation_results*.csv
 
-# Chroma Database
-tobaverse-backend/chroma_db/
-
 # OS
 .DS_Store
 Thumbs.db

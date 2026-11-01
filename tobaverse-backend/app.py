@@ -33,26 +33,25 @@ load_dotenv()  # baca API key dari file .env
 app = Flask(__name__)
 CORS(app)  # supaya frontend (file HTML statis) boleh akses backend ini
 
-DB_PATH = "./chroma_db"
+DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "chroma_db")
 COLLECTION_NAME = "tobaverse_knowledge"
 
 # ------------------------------------------------------------------
 # Setup koneksi ke vector database (dibuat sekali saat server start)
 # ------------------------------------------------------------------
-embedding_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
-    model_name="all-MiniLM-L6-v2"
-)
+embedding_fn = embedding_functions.DefaultEmbeddingFunction()
 chroma_client = chromadb.PersistentClient(path=DB_PATH)
 collection = chroma_client.get_collection(
     name=COLLECTION_NAME,
     embedding_function=embedding_fn
 )
+collection.query(query_texts=["danau toba"], n_results=1)  # pemanasan model embedding
 
 # ------------------------------------------------------------------
 # Setup Groq API client
 # ------------------------------------------------------------------
 groq_client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
-GROQ_MODEL = "llama-3.3-70b-versatile"  # kualitas bagus, cepat, kuota gratis longgar
+GROQ_MODEL = os.environ.get("GROQ_MODEL", "openai/gpt-oss-120b")  # model dibaca dari .env
 
 SYSTEM_PROMPT = """Kamu adalah TobaVerse, asisten wisata ramah untuk kawasan Danau Toba.
 Jawab HANYA berdasarkan informasi yang diberikan di dalam <context> di bawah. Jika

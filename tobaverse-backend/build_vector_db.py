@@ -13,12 +13,13 @@ Cara pakai:
     python build_vector_db.py
 """
 
+import os
 import json
 import chromadb
 from chromadb.utils import embedding_functions
 
 KB_FILE = "knowledge_base.json"
-DB_PATH = "./chroma_db"
+DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "chroma_db")
 COLLECTION_NAME = "tobaverse_knowledge"
 
 # ------------------------------------------------------------------
@@ -26,10 +27,7 @@ COLLECTION_NAME = "tobaverse_knowledge"
 #    Model "all-MiniLM-L6-v2": kecil (~80MB), cepat, gratis, jalan
 #    lokal di laptop (tidak perlu API key untuk bagian ini).
 # ------------------------------------------------------------------
-print("Menyiapkan model embedding (unduhan pertama kali bisa makan waktu 1-2 menit)...")
-embedding_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
-    model_name="all-MiniLM-L6-v2"
-)
+embedding_fn = embedding_functions.DefaultEmbeddingFunction()
 
 # ------------------------------------------------------------------
 # 2. Baca knowledge base
